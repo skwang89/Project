@@ -348,5 +348,5 @@ mpg %>%
 # mpg$hwy <- ifelse(mpg$hwy < 12 | mpg$hwy > 37, NA, mpg$hwy)
 
 
-# <<교재 6장 끝>>
-# rwork5.R end
+# <<교재 7장 끝>>
+# rwork6.R end

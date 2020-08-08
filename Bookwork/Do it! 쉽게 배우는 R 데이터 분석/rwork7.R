@@ -207,5 +207,5 @@ ggplot(data=df, aes(x=class, y=cty)) + geom_boxplot()
 # ggplot(data = mpg, aes(x = drv, y = hwy)) + geom_boxplot()
 
 
-# <<교재 6장 끝>>
-# rwork5.R end
+# <<교재 8장 끝>>
+# rwork7.R end
