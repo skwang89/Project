@@ -1,4 +1,4 @@
-s# rwork4.R start
+# rwork4.R start
 # <<교재 5장 시작>>
 
 
@@ -251,41 +251,41 @@ qplot(mpg$grade)
 # midwest 데이터를 사용해 데이터 분석 문제를 해결해보세요.
 # • 문제 1. ggplot2 의 midwest 데이터를 데이터 프레임 형태로
 # 불러와서 데이터의 특성을 파악하세요.
+midwest <- as.data.frame(ggplot2::midwest)
+head(midwest)
+tail(midwest)
+View(midwest)
+dim(midwest)
+str(midwest)
+summary(midwest)
 
 # • 문제 2. poptotal(전체 인구)을 total 로, popasian(아시아 인구)을
 # asian 으로 변수명을 수정하세요.
+library(dplyr)
+midwest <- rename(midwest, total=poptotal, asian=popasian)
+View(midwest)
 
 # • 문제 3. total, asian 변수를 이용해 '전체 인구 대비 
 # 아시아 인구 백분율' 파생변수를 만들고, 히스토그램을
 # 만들어 도시들이 어떻게 분포하는지 살펴보세요.
+midwest$allperasian <- midwest$asian/midwest$total*100
+hist(midwest$allperasian)
 
 # • 문제 4. 아시아 인구 백분율 전체 평균을 구하고, 평균을 초과하면
 # "large", 그 외에는 "small"을 부여하는 파생변수를 만들어 보세요.
+mean(midwest$allperasian)
+# [1] 0.4872462
+midwest$LS <- ifelse(midwest$allperasian > 0.4872462, "large", "small")
 
 # • 문제 5. "large"와 "small"에 해당하는 지역이 얼마나 되는지,
 # 빈도표와 빈도 막대 그래프를 만들어 확인해 보세요.
-
+table(midwest$LS)
+# large small 
+# 119   318 
+library(ggplot2)
+qplot(midwest$LS)
 # ================================================================
 
 
 # <<교재 5장 끝>>
 # rwork4.R end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
