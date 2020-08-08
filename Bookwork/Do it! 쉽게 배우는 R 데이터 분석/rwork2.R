@@ -236,11 +236,14 @@ mean(fruits$판매량)
 
 # 외부 데이터 이용하기
 # readxl 패키지 설치
-install.packages("readxl")
+install.packages
+
+# readxl 패키지 로딩
 library(readxl)
 
-
-
+# 엑설 파일 읽어오기: 상대경로
+df_exam <- read_excel("data/excel_exam.xlsx")
+df_exam
 
 
 
