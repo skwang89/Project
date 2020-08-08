@@ -1,1 +1,14 @@
+Rstudio를 이용한 R배우기
+
+<파일설명>
+rwork1.R: 
+기본자료형 - 숫자형, 문자형, 논리형, NA형, factor형
+자료구조 - 벡터, 배열, 행렬, 리스트, 데이터프레임
+조건문 - if문, ifelse문, if ~ else if문
+반복문 - for문, while문
+사용자 정의 함수
+
+rwork2.R:
+
+
 
