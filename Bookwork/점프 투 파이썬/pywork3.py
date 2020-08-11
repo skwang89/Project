@@ -182,7 +182,7 @@ def add(a, b):
 result = add(3, 4)
 print(result)           # 7
 
-# <4-2 사용장 입력과 출력>
+# <4-2. 사용장 입력과 출력>
 # 사용자 입력: 사용자가 입력한 값을 변수에 대입하고 싶을 때
 # input의 사용
 a = input()
@@ -220,7 +220,7 @@ for i in range(10):
     print(i, end=" ")
 # 0 1 2 3 4 5 6 7 8 9
 
-# <4-3 파일 읽고 쓰기>
+# <4-3. 파일 읽고 쓰기>
 # 파일 생성하기
 f = open("C:\workspace-total\pythonworkspace\점프 투 파이썬\Bookwork\점프 투 파이썬/새파일.txt", 'w')
 f.close()
