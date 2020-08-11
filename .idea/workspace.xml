@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/index" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bookwork/초보자를 위한 파이썬 300제/index" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/초보자를 위한 파이썬 300제/index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597120798638</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add pywork2">
+      <created>1597127390253</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597127390253</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,6 +139,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ㅇㅇ" />
     <MESSAGE value="add pywork1" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pywork1" />
+    <MESSAGE value="add pywork2" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pywork2" />
   </component>
 </project>
