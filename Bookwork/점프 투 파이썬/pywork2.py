@@ -149,7 +149,7 @@ message = "success" if score >= 60 else "failure"
 #     <수행할 문장3>
 #     ...
 
-# "열 번 찍어 안 넘어가는 나무 없다"
+# "열 번 찍어 안 넘어가는 나무 없다."
 hit = 0
 while hit <10:
     hit = hit +1
