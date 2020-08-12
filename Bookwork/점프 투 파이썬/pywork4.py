@@ -796,16 +796,425 @@ isinstance(b, Person)
 # False: b는 Person 클래스가 만든 인스턴스가 아니므로 False를 돌려준다.
 
 # len
+# 입력값 s의 길이(요소의 전체 개수)를 돌려주는 함수
+len("python")
+# 6
 
+# list
+# 반복 가능한 자료형 s를 입력받아 리스트로 만들어 돌려주는 함수
+list("python")
+# ['p', 'y', 't', 'h', 'o', 'n']
+a = [1,2,3]
+b= list(a)
+b
+# [1, 2, 3]
 
+# map
+# 함수(f)와 반복 가능한(iterable) 자료형을 입력으로 받는다.
+# map은 입력받은 자료형의 각 요소를 함수 f가 수행한 결과를 묶어서 돌려주는 함수
+def two_times(numberList):
+    result = []
+    for number in numberList:
+        result.append(number*2)
+    return result
+result = two_times([1,2,3,4])
+print(result)
+# [2, 4, 6, 8]
+def two_times(x):
+    return x*2
+list(map(two_times, [1,2,3,4]))
+# [2, 4, 6, 8]
 
+list(map(lambda a: a*2, [1,2,3,4]))
+# [2, 4, 6, 8]
 
+# max
+# 인수로 반복 가능한 자료형을 입력받아 그 최댓값을 돌려주는 함수
+max([1, 2, 3])
+# 3
+max("python")
+# 'y'
 
+# min
+# max 함수와 반대
+max([1, 2, 3])
+# 1
+max("python")
+# 'h'
 
+# oct
+# 정수 형태의 숫자를 8진수 문자열로 바꾸어 돌려주는 함수
+oct(34)
+# '0o42'
+oct(12345)
+# '0o30071'
 
+# open
+# "파일 이름"과 "읽기 방법"을 입력받아 파일 객체를 돌려주는 함수이다.
+# 읽기 방법(mode)을 생략하면 기본값인 읽기 전용 모드(r)로 파일 객체를 만들어 돌려준다.
+# mode	설명
+# w	    쓰기 모드로 파일 열기
+# r	    읽기 모드로 파일 열기
+# a	    추가 모드로 파일 열기
+# b	    바이너리 모드로 파일 열기
+# b는 w, r, a와 함께 사용한다.
+f = open("binary_file", "rb")
+# 위 예의 rb는 "바이너리 읽기 모드"를 의미한다.
 
+# 다음 예의 fread와 fread2는 동일한 방법이다.
+fread = open("read_mode.txt", 'r')
+fread2 = open("read_mode.txt")
+# 즉 모드 부분을 생략하면 기본값으로 읽기 모드 r를 갖게 된다.
 
+# 다음은 추가 모드(a)로 파일을 여는 예이다.
+fappend = open("append_mode.txt", 'a')
 
+# ord
+# 문자의 아스키 코드 값을 돌려주는 함수
+# ※ ord 함수는 chr 함수와 반대
+ord('a')
+# 97
+ord('0')
+# 48
+
+# pow
+# pow(x, y)는 x의 y 제곱한 결괏값을 돌려주는 함수
+pow(2, 4)
+# 16
+
+# range
+# range([start,] stop [,step] )는 for문과 함께 자주 사용하는 함수
+# 입력받은 숫자에 해당하는 범위 값을 반복 가능한 객체로 만들어 돌려준다.
+list(range(5))
+# [0, 1, 2, 3, 4]
+list(range(5, 10))              # 시작 숫자와 끝 숫자
+# [5, 6, 7, 8, 9]
+list(range(1, 10, 2))           # 시작 숫자와 끝 숫자 숫자 사이의 거리
+# [1, 3, 5, 7, 9]
+
+# round
+# round(number[, ndigits]) 함수는 숫자를 입력받아 반올림해 주는 함수
+round(4.6)
+# 5
+round(5.678, 2)     # 소숫점 2자리까지
+# 5.68
+
+# sorted
+# 함수는 입력값을 정렬한 후 그 결과를 리스트로 돌려주는 함수
+sorted([3, 1, 2])
+# [1, 2, 3]
+sorted(['a', 'c', 'b'])
+# ['a', 'b', 'c']
+# 리스트 자료형에도 sort 함수가 있다. 하지만 리스트 자료형의 sort 함수는
+# 리스트 객체 그 자체를 정렬만 할 뿐 정렬된 결과를 돌려주지는 않는다.
+
+# str
+# str(object)은 문자열 형태로 객체를 변환하여 돌려주는 함수
+str(3)
+# '3'
+
+# sum
+# 리스트나 튜플의 모든 요소의 합을 돌려주는 함수
+sum([1,2,3])
+# 6
+
+tuple
+# tuple(iterable)은 반복 가능한 자료형을 입력받아 튜플 형태로 바꾸어 돌려주는 함수이다.
+# 만약 튜플이 입력으로 들어오면 그대로 돌려준다.
+tuple("abc")
+# ('a', 'b', 'c')
+tuple([1, 2, 3])
+# (1, 2, 3)
+tuple((1, 2, 3))
+# (1, 2, 3)
+
+# type
+# 입력값의 자료형이 무엇인지 알려 주는 함수
+type("abc")
+# 'str'
+
+# zip
+# 동일한 개수로 이루어진 자료형을 묶어 주는 역할을 하는 함수
+# zip(*iterable): 반복 가능(iterable)한 자료형 여러 개를 입력할 수 있다는 의미
+list(zip([1, 2, 3], [4, 5, 6]))
+# [(1, 4), (2, 5), (3, 6)]
+list(zip([1, 2, 3], [4, 5, 6], [7, 8, 9]))
+# [(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+
+# <5-6. 라이브러리>
+# sys
+# 파이썬 인터프리터가 제공하는 변수와 함수를 직접 제어할 수 있게 해주는 모듈
+
+# pickle
+# 객체의 형태를 그대로 유지하면서 파일에 저장하고 불러올 수 있게 하는 모듈
+# 떤 자료형이든저장하고 불러올 수 있다.
+
+# os
+# 환경 변수나 디렉터리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈
+
+# 내 시스템의 환경 변수값을 알고 싶을 때 - os.environ
+# 디렉터리 위치 변경하기 - os.chdir
+# 디렉터리 위치 돌려받기 - os.getcwd
+# 시스템 명령어 호출하기 - os.system
+# 실행한 시스템 명령어의 결괏값 돌려받기 - os.popen
+# 디렉터리 생성 - os.mkdir(디렉터리)
+# 딕렉터리 삭제, 단 디렉터리가 비어있을 때 - os.rmdir(디렉터리)
+# 파일 지우기 - os.unlink(파일)
+# 이름 바꾸기  - os.rename(src, dst)
+
+# shutil
+# 파일을 복사해 주는 파이썬 모듈
+
+# glob
+# 특정 디렉터리에 있는 파일 이름 모두를 알아야 할 때 사용
+
+# tempfile
+# 파일을 임시로 만들어서 사용할 때 유용한 모듈
+
+# time
+# time.time
+# UTC(Universal Time Coordinated 협정 세계 표준시)를 사용하여
+# 현재 시간을 실수 형태로 돌려주는 함수
+import time
+time.time()
+# 1597197008.1474764
+
+# time.localtime
+# time.time()이 돌려준 실수 값을 사용해서
+# 연도, 월, 일, 시, 분, 초, ... 의 형태로 바꾸어 주는 함수
+time.localtime(time.time())
+time.struct_time(tm_year=2020, tm_mon=8, tm_mday=12, tm_hour=10,
+                 tm_min=50, tm_sec=56, tm_wday=2, tm_yday=225,
+                 tm_isdst=0)
+
+# time.asctime
+# time.localtime에 의해서 반환된 튜플 형태의 값을 인수로 받아서
+# 날짜와 시간을 알아보기 쉬운 형태로 돌려주는 함수
+time.asctime((time.localtime((time.time()))))
+# 'Wed Aug 12 10:51:45 2020'
+
+# time.ctime
+# time.asctime(time.localtime(time.time()))은
+# time.ctime()을 사용해 간편하게 표시
+# ctime은 항상 현재 시간만을 돌려준다
+time.ctime()
+# 'Wed Aug 12 10:52:20 2020'
+
+# time.strftime
+# time.strftime('출력할 형식 포맷 코드', time.localtime(time.time()))
+# strftime 함수는 시간에 관계된 것을 세밀하게 표현하는
+# 여러 가지 포맷 코드를 제공한다.
+#
+# 시간에 관계된 것을 표현하는 포맷 코드
+# 포맷코드	설명	                            예
+# %a	    요일 줄임말	                        Mon
+# %A	    요일	                            Monday
+# %b	    달 줄임말	                        Jan
+# %B	    달	                                January
+# %c	    날짜와 시간을 출력함	                06/01/01 17:22:21
+# %d	    날(day)	                            [01,31]
+# %H	    시간(hour)-24시간 출력 형태	        [00,23]
+# %I	    시간(hour)-12시간 출력 형태	        [01,12]
+# %j	    1년 중 누적 날짜	                    [001,366]
+# %m	    달	                                [01,12]
+# %M	    분	                                [01,59]
+# %p	    AM or PM	                        AM
+# %S	    초	                                [00,59]
+# %U	    1년 중 누적 주-일요일을 시작으로	    [00,53]
+# %w	    숫자로 된 요일	                    [0(일요일),6]
+# %W	    1년 중 누적 주-월요일을 시작으로	    [00,53]
+# %x	    현재 설정된 로케일에 기반한 날짜 출력	06/01/01
+# %X	    현재 설정된 로케일에 기반한 시간 출력	17:22:21
+# %Y	    년도 출력	                        2020
+# %Z	    시간대 출력	                        대한민국 표준시
+# %%	    문자	                            %
+# %y	    세기부분을 제외한 년도 출력	        20
+
+import time
+time.strftime('%x', time.localtime(time.time()))
+# '08/12/20'
+time.strftime('%c', time.localtime(time.time()))
+# 'Wed Aug 12 10:56:09 2020'
+
+# time.sleep
+# 주로 루프 안에서 많이 사용
+# 정한 시간 간격을 두고 루프를 실행할 수 있다
+import time
+for i in range(10):
+    print(i)
+    time.sleep(0.1)     # 0.1 = 0.1초
+# 0
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+
+# calendar
+# calendar.calendar(연도)           # 그해의 전체 달력
+# calendar.prcal(연도)              # 그해의 전체 달력
+# calendar.weekday    # 그 날짜에 해당하는 요일 정보를 돌려준다.
+# calendar.monthrange
+# 달의 1일이 무슨 요일인지와 그 달이 며칠까지 있는지를 튜플 형태로 돌려준다.
+
+# random
+# random은 난수(규칙이 없는 임의의 수)를 발생시키는 모듈
+import random
+random.random() #0.0에서 1.0 사이의 실수 중에서 난수 값
+random.randint(1, 10)   # 1에서 10 사이의 정수 중에서 난수 값
+random.randint(1, 55)   # 1에서 55 사이의 정수 중에서 난수 값
+
+# random.choice
+# 입력으로 받은 리스트에서 무작위로 하나를 선택하여 돌려준다.
+# random.shuffle
+# 리스트의 항목을 무작위로 섞고 싶을 때
+
+# webbrowser
+# 자신의 시스템에서 사용하는 기본 웹 브라우저를 자동으로 실행하는 모듈
+import webbrowser
+webbrowser.open("http://google.com")
+
+# <연습문제>
+# Q1
+# 다음은 Calculator 클래스이다.
+
+class Calculator:
+    def __init__(self):
+        self.value = 0
+
+    def add(self, val):
+        self.value += val
+# 위 클래스를 상속하는 UpgradeCalculator를 만들고 값을 뺄 수 있는
+# minus 메서드를 추가해 보자.
+# 즉 다음과 같이 동작하는 클래스를 만들어야 한다.
+cal = UpgradeCalculator()
+cal.add(10)
+cal.minus(7)
+print(cal.value) # 10에서 7을 뺀 3을 출력
+
+class UpgradeCalculator(Calculator):
+    def minus(self, val):
+        self.value -= val
+
+# Q2
+# 객체변수 value가 100 이상의 값은 가질 수 없도록 제한하는
+# MaxLimitCalculator 클래스를 만들어 보자.
+# 즉 다음과 같이 동작해야 한다.
+
+cal = MaxLimitCalculator()
+cal.add(50) # 50 더하기
+cal.add(60) # 60 더하기
+
+print(cal.value) # 100 출력
+# 단 반드시 다음과 같은 Calculator 클래스를 상속해서 만들어야 한다.
+
+class Calculator:
+    def __init__(self):
+        self.value = 0
+
+    def add(self, val):
+        self.value += val
+
+class MaxLimitCalculator(Calculator):
+    def add(self, val):
+        self.value += val
+        if self.value > 100:
+            self.value = 100
+
+# Q3
+# 다음 결과를 예측해 보자.
+
+# 하나.
+all([1, 2, abs(-3)-3])
+# False
+# 둘.
+chr(ord('a')) == 'a'
+# ord('a') 의 결과는 97이 되어 chr(97)로 치환
+# chr(97)의 결과는 다시 'a'
+# True
+
+# Q4
+# filter와 lambda를 사용하여 리스트 [1, -2, 3, -5, 8, -3]에서 음수를 모두 제거해 보자.
+list(filter(lambda x:x>0, [1, -2, 3, -5, 8, -3]))
+
+# Q5
+# 234라는 10진수의 16진수는 다음과 같이 구할 수 있다.
+hex(234)
+'0xea'
+# 이번에는 반대로 16진수 문자열 0xea를 10진수로 변경해 보자.
+# ※ 내장 함수 int를 활용해 보자.
+int(0xea)
+int('0xea', 16)
+
+# Q6
+# map과 lambda를 사용하여 [1, 2, 3, 4] 리스트의
+# 각 요솟값에 3이 곱해진 리스트 [3, 6, 9, 12]를 만들어 보자.
+list(map(lambda a: 3*a, [1, 2, 3, 4]))
+
+# Q7
+# 다음 리스트의 최댓값과 최솟값의 합을 구해 보자.
+[-8, 2, 7, 5, -3, 5, 0, 1]
+a= [-8, 2, 7, 5, -3, 5, 0, 1]
+max(a) + min(a)
+
+# Q8
+# 17 / 3의 결과는 다음과 같다.
+# 17 / 3
+# 5.666666666666667
+# 위와 같은 결괏값 5.666666666666667을
+# 소숫점 4자리까지만 반올림하여 표시해 보자.
+round((17/3),4)
+# Q9
+# 다음과 같이 실행할 때 입력값을 모두 더하여 출력하는
+# 스크립트(C:\doit\myargv.py)를 작성해 보자.
+# C:\> cd doit
+# C:\doit> python myargv.py 1 2 3 4 5 6 7 8 9 10
+# 55
+# ※ 외장 함수 sys.argv를 사용해 보자.
+import sys
+numbers = sys.argv[1:]
+result = 0
+for number in numbers:
+    result += int(number)
+print(result)
+
+# Q10
+# os 모듈을 사용하여 다음과 같이 동작하도록 코드를 작성해 보자.
+#
+# C:\doit 디렉터리로 이동한다.
+# dir 명령을 실행하고 그 결과를 변수에 담는다.
+# dir 명령의 결과를 출력한다.
+import os
+os.chdir("c:/doit")
+result = os.popen("dir")
+print(result.read())
+
+# Q11
+# glob 모듈을 사용하여 C:\doit 디렉터리의 파일 중 확장자가 .py인 파일만
+# 출력하는 프로그램을 작성해 보자.
+import glob
+glob.glob("c:/doit/*.py")
+
+# Q12
+# time 모듈을 사용하여 현재 날짜와 시간을 다음과 같은 형식으로 출력해 보자.
+# 2018/04/03 17:20:32
+import time
+time.strftime(("%Y/%m/%d %H:%M:%S"))
+# '2020/08/12 12:14:34'
+
+# Q13
+# random 모듈을 사용하여 로또 번호(1~45 사이의 숫자 6개)를 생성해 보자(단 중복된 숫자가 있으면 안 됨).
+import random
+result = []
+while len(result) < 6:
+    num = random.randint(1, 45)
+    if num not in result:
+        result.append(num)
+print(result)
 
 
 # <<교재 5장 끝>>
