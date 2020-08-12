@@ -223,29 +223,185 @@ cal2.sum() # 합계
 cal2.avg() # 평균
 8.0
 
+# Q11 모듈 사용 방법
+# C:\doit 디렉터리에 mymod.py 파이썬 모듈이 있다고 가정해 보자.
+# 명령 프롬프트 창에서 파이썬 셸을 열어 이 모듈을 import해서 사용할 수 있는
+# 방법을 모두 기술하시오.
+# (즉 다음과 같이 import mymod를 수행할 때 오류가 없어야 한다.)
+# import mymod
 
+# 1) sys 모듈 사용
+import sys
+sys.path.append("c:/")
+# import mymod
 
+# 2) PYTHONPATH 환경변수 사용
+# C:\Users\home>set PYTHONPATH=c:\doit
+# C:\Users\home>python
+# import mymod
 
+# 3) 현재 디렉토리 사용
+# C:\Users\home>cd c:\doit
+# C:\doit>python
+# import mymod
 
+# Q12 오류와 예외 처리
+# 다음 코드의 실행 결과를 예측하고 그 이유에 대해 설명하시오.
+result = 0
+try:
+    [1, 2, 3][3]
+    "a"+1
+    4 / 0
+except TypeError:
+    result += 1
+except ZeroDivisionError:
+    result += 2
+except IndexError:
+    result += 3
+finally:
+    result += 4
+print(result)
 
+# list index out of range
+# IndexError 부터 시작  result에 3 저장
+# fianlly 구문 통과 result에 4 저ㅏㅇ
+# print함수 통과 : 7
 
+# Q13 DashInsert 함수
+# DashInsert 함수는 숫자로 구성된 문자열을 입력받은 뒤
+# 문자열 안에서 홀수가 연속되면 두 수 사이에 - 를 추가하고,
+# 짝수가 연속되면 * 를 추가하는 기능을 갖고 있다.
+# DashInsert 함수를 완성하시오.
+# 입력 예시: 4546793
+# 출력 예시: 454*67-9-3
+data = '4546793'
+numbers = list(map(int, data))
+result = []
 
+for i, num in enumerate(numbers):
+    result.append(str(num))
+    if i < len(numbers)-1:
+        is_odd = num%2==1
+        is_next_odd = numbers[i+1] % 2 ==1
+        if is_odd and is_next_odd:
+            result.append("-")
+        elif not is_odd and not is_next_odd:
+            result.append("*")
+print("".join(result))
 
+# Q14 문자열 압축하기
+# 문자열을 입력받아 같은 문자가 연속적으로 반복되는 경우에
+# 그 반복 횟수를 표시해 문자열을 압축하여 표시하시오.
+# 입력 예시: aaabbcccccca
+# 출력 예시: a3b2c6a1
+def serial(s):
+    j = ""
+    cnt = 0
+    result = ""
+    for i in s:
+        if i != j:
+            j = i
+            if cnt:
+                result += str(cnt)
+            result += i
+            cnt = 1
+        else:
+            cnt += 1
+    if cnt:
+        result += str(cnt)
+    return result
 
+print (serial("aaabbcccccca"))  # a3b2c6a1 출력
+# a3b2c6a1
 
+# Q15 Duplicate Numbers
+# 0~9의 문자로 된 숫자를 입력받았을 때,
+# 이 입력값이 0~9의 모든 숫자를 각각 한 번씩만 사용한 것인지
+# 확인하는 함수를 작성하시오.
 
+# 입력 예시: 0123456789 01234 01234567890 6789012345 012322456789
+# 출력 예시: true false false true false
+def check(s):
+    result = []
+    for i in s:
+        if i not in result:
+            result.append(num)
+        else:
+            return False
+    return len(result) ==10
+print(check("0123456789"))      # True 리턴
+print(check("01234"))           # False 리턴
+print(check("01234567890"))     # False 리턴
+print(check("6789012345"))      # True 리턴
+print(check("012322456789"))    # False 리턴
 
+# Q16 모스 부호 해독
+# 문자열 형식으로 입력받은 모스 부호(dot:. dash:-)를 해독하여
+# 영어 문장으로 출력하는 프로그램을 작성하시오.
+# 글자와 글자 사이는 공백 1개, 단어와 단어 사이는 공백 2개로 구분한다.
+# 예를 들어 다음 모스 부호는 "HE SLEEPS EARLY"로 해석해야 한다.
+# .... .  ... .-.. . . .--. ...  . .- .-. .-.. -.--
+dic = {
+    '.-':'A','-...':'B','-.-.':'C','-..':'D','.':'E','..-.':'F',
+    '--.':'G','....':'H','..':'I','.---':'J','-.-':'K','.-..':'L',
+    '--':'M','-.':'N','---':'O','.--.':'P','--.-':'Q','.-.':'R',
+    '...':'S','-':'T','..-':'U','...-':'V','.--':'W','-..-':'X',
+    '-.--':'Y','--..':'Z'
+}
+def morse(s):
+    result= []
+    for i in s.split("  "):
+        for char in i.split(" "):
+            result.append(dic[char])
+        result.append(" ")
+    return "".join(result)
+print(morse('.... .  ... .-.. . . .--. ...  . .- .-. .-.. -.--'))
 
+# Q17 기초 메타 문자
+# 다음 중 정규식 a[.]{3,}b과 매치되는 문자열은 무엇일까?
+# acccb
+# a....b
+# aaab
+# a.cccb
+import re
+p = re.compile("a[.]{3,}b")
+print(p.match("a...b"))
 
+# Q18 문자열 검색
+# 다음 코드의 결괏값은 무엇일까?
+import re
+p = re.compile("[a-z]+")
+m = p.search("5 python")
+m.start() + m.end()
+# 2 + 8 = 10
 
+# Q19 그루핑
+# 다음과 같은 문자열에서 휴대폰 번호 뒷자리인 숫자 4개를
+###로 바꾸는 프로그램을 정규식을 사용하여 작성하시오.
 
+"""
+park 010-9999-9988
+kim 010-9909-7789
+lee 010-8789-7768
+"""
+s = """
+park 010-9999-9988
+kim 010-9909-7789
+lee 010-8789-7768
+"""
+lang = re.compile("(\d{3}[-]\d{4})[-]\d{4}")
+result = lang.sub("\g<1>=####", s)
+print(result)
 
-
-
-
-
-
-
+# Q20 전방 탐색
+# 다음은 이메일 주소를 나타내는 정규식이다.
+# 이 정규식은 park@naver.com, kim@daum.net, lee@myhome.co.kr 등과 매치된다.
+# 긍정형 전방 탐색 기법을 사용하여 .com, .net이 아닌
+# 이메일 주소는 제외시키는 정규식을 작성하시오.
+# .*[@].*[.].*$
+ig = re.compile(".*[@].*[.](?=com$|net$).*$")
+print(ig.match("ddd@gmail.com"))
+print(ig.match('ddd@df.co.kr'))
 
 
 # <<교재 8장 끝>>
