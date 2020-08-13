@@ -56,8 +56,8 @@ library(KoNLP)
 library(dplyr)
 
 # java 폴더 경로 설정
-Sys.setenv(JAVA_HOME="C:/Program Files/Java/jre1.8.0_231/")
-
+Sys.setenv(JAVA_HOME="C:\\Program Files\\Java\\jre1.8.0_231")
+Sys.setenv(JAVA_HOME="C:/Program Files/Java/jdk-14.0.2")
 
 # 사전 설정하기 
 useNIADic()
