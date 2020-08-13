@@ -23,6 +23,24 @@ install.packages("https://cran.r-project.org/src/contrib/Archive/KoNLP/KoNLP_0.8
 install.packages("KoNLP")
 install.packages("dplyr")
 
+# --------------------------------------------------------------
+install.packages("multilinguer")
+library(multilinguer)
+install_jdk()
+install.packages(c('stringr', 'hash', 'tau', 'Sejong', 'RSQLite', 'devtools'), type = "binary")
+install.packages("remotes")
+remotes::install_github('haven-jeon/KoNLP', upgrade = "never", INSTALL_opts=c("--no-multiarch"))
+library(KoNLP) #최종적으로 "KoNLP" 패키지를 불러옵니다
+
+devtools::install_github('haven-jeon/NIADic/NIADic', build_vignettes = TRUE)
+Sys.setenv(JAVA_HOME='C:/Program Files/Java/jre1.8.0_251')  # 설치한 JAVA version에 따라 달라집니다
+buildDictionary(ext_dic = "woorimalsam")  # "woorimalsam" dic을 불러옵니다
+useNIADic()  # "NIADic" dic을 불러옵니다
+# --------------------------------------------------------------
+
+
+
+
 # 라이브러리 경로 확인
 .libPaths()
 
