@@ -87,7 +87,7 @@ mean(fruits$판매량)
 
 # 외부 데이터 이용하기
 # readxl 패키지 설치
-install.packages
+install.packages('readxl')
 
 # readxl 패키지 로딩
 library(readxl)
