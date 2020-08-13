@@ -16,6 +16,12 @@ install.packages(c('stringr', 'hash', 'tau', 'Sejong', 'RSQLite', 'devtools'), t
 # github 버전 설치
 install.packages("remotes")
 
+# 64bit 에서만 동작합니다.
+remotes::install_github('haven-jeon/KoNLP', upgrade = "never", INSTALL_opts=c("--no-multiarch"))
+
+install.packages("vctrs")
+library(vctrs)
+
 remotes::install_github('haven-jeon/KoNLP', upgrade = "never", INSTALL_opts=c("--no-multiarch"))
 
 install.packages("https://cran.r-project.org/src/contrib/Archive/KoNLP/KoNLP_0.80.2.tar.gz", repos = NULL , type = "source",INSTALL_opts = c('--no-lock'))
