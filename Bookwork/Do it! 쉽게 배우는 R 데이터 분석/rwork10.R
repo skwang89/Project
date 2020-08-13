@@ -70,7 +70,7 @@ library(mapproj)
 ggChoropleth(data = crime,          # 지도에 표시할 데이터
              aes(fill = Murder,     # 색깔로 표현할 변수
                  map_id = state),   # 지역 기준 변수
-             map = states_map)      # 지도 데이터
+             map = state_map)      # 지도 데이터
 
 # 인터렉티브 단계 구분도
 ggChoropleth(data = crime,
@@ -83,23 +83,76 @@ ggChoropleth(data = crime,
 # 대한민국 시도별 인구 단계 구분도
 
 # 패키지 설치하기
-install.packages("staringi")
+install.packages("stringi")
 
 install.packages("devtools")
-library(kormaps2014)
 devtools::install_github("cardiomoon/kormaps2014")
 
+library(kormaps2014)
+
+# 대한민국 시도별 인구 데이터 준비하기
+
+# kormaps2014 패키지 
+# 데이터 이름       내용
+#-------------------------------
+# korpop1          시도별
+# korpop2          시군구별
+# korpop3          읍면동별 
+
+# 대한민국 시도별 인구 데이터
+# changeCode() : korpop1데이터의 UTF-8 데이터를 CP949로 변환
+str(korpop1)
+str(changeCode(korpop1))
 
 
-> install.packages("staringi")
-Warning in install.packages :
-  package ‘staringi’ is not available (for R version 4.0.2)
+# 변수명 변경 
+# 총인구_명 -> pop
+# 행정구역별_읍면동 -> name
+library(dplyr)
+korpop1 <- rename(korpop1,
+                  pop = 총인구_명,
+                  name = 행정구역별_읍면동)
+head(korpop1)
+dim(korpop1)      # 17행 25열
+View(korpop1)
+str(changeCode(korpop1))
+
+# name 변수 깨지지 않도록 처리
+korpop1$name <- iconv(korpop1$name, "UTF-8", "CP949")
+
+# 단계 구분도
+ggChoropleth(data = korpop1,       # 지도에 표현할 데이터
+             aes(fill = pop,       # 색깔로 표현할 변수
+                 map_id = code,    # 지역 기준 변수
+                 tooltip = name),  # 지도위에 표시할 지역명 
+             map = kormap1,        # 지도 데이터
+             interactive = T)     # 인터랙티브 
+
+#--------------------------------------------------------------
+# 대한민국 시도별 결핵 환자수 단계 구분도 만들기
+# kormaps2014 패키지 안에는 지역별 결핵환자수에 대한 정보를 
+# 가지고 있는 tbc 데이터 활용 
+
+# 데이터 확인
+str(changeCode(tbc))
+# name : 지역명
+# NewPts : 결핵환자수 
+
+# name변수 데이터 인코딩을  변환 : UTF-8  --> CP949 변환
+tbc$name <- iconv(tbc$name, "UTF-8", "CP949")
 
 
-> install.packages("kormaps2014")
-Warning in install.packages :
-  package ‘kormaps2014’ is not available (for R version 4.0.2)
+# 단계 구분도 만들기
+ggChoropleth(data = tbc,          # 지도에 표현할 데이터
+             aes(fill = NewPts,   # 색깔로 표현할 변수(결핵환자수)
+                 map_id = code,   # 지역 기준 변수
+                 tooltip = name), # 지도 위에 표시할 지역명
+             map = kormap1,       # 지도 데이터 
+             interactive = T)     # 인터렉티브 
 
 
 # <<교재 11장 끝>>
 # rwork10.R end
+
+
+
