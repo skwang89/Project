@@ -8,8 +8,7 @@
 
 # 환경 구축
 # 1. 패키지 설치
-install.packages("rJava")
-install.packages("memoise")
+
 # 의존성 패키지 설치
 install.packages(c('stringr', 'hash', 'tau', 'Sejong', 'RSQLite', 'devtools'), type = "binary")
 
@@ -22,54 +21,32 @@ remotes::install_github('haven-jeon/KoNLP', upgrade = "never", INSTALL_opts=c("-
 install.packages("vctrs")
 library(vctrs)
 
-remotes::install_github('haven-jeon/KoNLP', upgrade = "never", INSTALL_opts=c("--no-multiarch"))
 
-install.packages("https://cran.r-project.org/src/contrib/Archive/KoNLP/KoNLP_0.80.2.tar.gz", repos = NULL , type = "source",INSTALL_opts = c('--no-lock'))
-
-install.packages("KoNLP")
+install.packages("rJava")
+install.packages("memoise")
+#install.packages("KoNLP")
 install.packages("dplyr")
 
-# --------------------------------------------------------------
-install.packages("multilinguer")
-library(multilinguer)
-install_jdk()
-install.packages(c('stringr', 'hash', 'tau', 'Sejong', 'RSQLite', 'devtools'), type = "binary")
-install.packages("remotes")
-remotes::install_github('haven-jeon/KoNLP', upgrade = "never", INSTALL_opts=c("--no-multiarch"))
-library(KoNLP) #최종적으로 "KoNLP" 패키지를 불러옵니다
-
-devtools::install_github('haven-jeon/NIADic/NIADic', build_vignettes = TRUE)
-Sys.setenv(JAVA_HOME='C:/Program Files/Java/jre1.8.0_251')  # 설치한 JAVA version에 따라 달라집니다
-buildDictionary(ext_dic = "woorimalsam")  # "woorimalsam" dic을 불러옵니다
-useNIADic()  # "NIADic" dic을 불러옵니다
-# --------------------------------------------------------------
-
-
-
-
-# 라이브러리 경로 확인
-.libPaths()
-
+# 2. 패키지 로딩
 library(rJava)
 library(memoise)
 library(KoNLP)
 library(dplyr)
 
 # java 폴더 경로 설정
-Sys.setenv(JAVA_HOME="C:\\Program Files\\Java\\jre1.8.0_231")
-Sys.setenv(JAVA_HOME="C:/Program Files/Java/jdk-14.0.2")
+Sys.setenv(JAVA_HOME="C:/Program Files/Java/jre1.8.0_231/")
+
 
 # 사전 설정하기 
 useNIADic()
 
 # 데이터 불러오기
 # 인코딩이 ANSI 타입으로 저장된 파일은 encoding = "CP949" 읽어옴 
-txt <- readLines("data/hiphop.txt", encoding = "CP949")
+txt <- readLines("data/hiphop.txt", encoding = "UTF-8")
 txt
 # 인코딩이 UTF-8 타입으로 저장된 파일은 encoding = "UTF-8" 읽어옴 
 txt <- readLines("data/hong.txt", encoding = "UTF-8")
 head(txt)
-
 View(txt)
 
 # 특수문자 제거
@@ -77,22 +54,26 @@ install.packages("stringr")
 library(stringr)
 
 # 특수 문자를 공백으로 수정
-txt <- str_replace_all(txt,"\\W"," ")
+txt <- str_replace_all(txt, "\\W", " ")
 
 # 명사 추출
-nouns <- extractNon(txt)  # KoNLP오류
-wordcount <- table(unlist(txt))
+nouns <- extractNoun(txt)
+nouns
+
+# 추출한 명사 list를 문자열 벡터로 변환, 단어별 빈도 구하기
+wordcount <- table(unlist(nouns))
 wordcount
 
 # 데이터 프레임으로 변환
-df_word <- as.data.frame(wordcount, stringAsFactors = F)
+df_word <- as.data.frame(wordcount, stringsAsFactors = F)
 head(df_word)
 
-# 변수명 수정: Var1 -> word, Freq -> freq
+# 변수명 수정 : Var1 -> word, Freq -> freq
 df_word <- rename(df_word,
-                  word = Var1,
+                  word = Var1,     
                   freq = Freq)
 head(df_word)
+
 
 # 2글자 이상 단어 추출
 df_word <- filter(df_word, nchar(word) >= 2)
@@ -105,7 +86,8 @@ top20 <- df_word %>%
   head(20)
 top20
 
-# 워드 클라우드 만들기
+
+# 워드 클라우스 만들기
 #  패키지 설치
 install.packages("wordcloud")
 
@@ -135,89 +117,7 @@ wordcloud(words = df_word$word,    # 단어
 #-------------------------------------------------------------
 # 국정원 트윗 텍스트 마이닝
 
-# 데이터 로딩
-twitter <- read.csv("data/twitter.csv",      
-                    header = T,              # 헤드 사용
-                    stringsAsFactors = F,    # 문자로 읽어옴 
-                    fileEncoding = "utf-8")  # utf-8로 읽어옴 
-twitter
 
-# 변수명 수정 
-twitter <- rename(twitter,
-                  no = 번호,
-                  id = 계정이름,
-                  date = 작성일,
-                  tw = 내용 )
-twitter
-
-
-# 특수 문자 제거
-library(stringr)
-
-twitter$tw <- str_replace_all(twitter$tw, "\\W", " ")
-head(twitter$tw)
-
-# 명사 추출
-nouns <- extractNoun(twitter$tw)
-nouns
-
-# 추출한 명사 list를 문자열 벡터로 변환, 단어별 빈도 구하기
-wordcount <- table(unlist(nouns))
-wordcount
-
-# 데이터 프레임으로 변환
-df_word <- as.data.frame(wordcount, stringsAsFactors = F)
-df_word
-
-# 변수명 수정 : Var1 -> word, Freq -> freq
-df_word <- rename(df_word,
-                  word = Var1,
-                  freq = Freq)
-head(df_word)
-
-# 2글자 이상의 단어 추출
-df_word <- filter(df_word, nchar(word) >= 2)
-df_word
-
-# 빈도수가 높은 상위 20개 단어 추출
-top20 <- df_word %>% 
-  arrange(desc(freq)) %>%  #빈도수를 기준으로 내림차순 정렬 
-  head(20)
-top20
-
-# top20 단어를 빈도 막대 그래프로 출력
-library(ggplot2)
-
-ggplot(data = top20, aes(x=word, y=freq)) + geom_col()
-
-
-# 워드 클라우드 만들기
-# 패키지 로딩 
-library(wordcloud)
-library(RColorBrewer)
-
-# 색상표
-pal <- brewer.pal(8, "Dark2")
-# pal <- brewer.pal(8, "Blues")
-
-# 난수 고정
-set.seed(1234)
-
-# 워드클라우드
-wordcloud(words = df_word$word,
-          freq = df_word$freq,
-          min.freq = 1,
-          max.words = 300,
-          random.order = F,
-          rot.per = .1,
-          scale = c(6, 0.1),
-          colors = pal )
-
-
-
-# KoNLP R 4.0.2 에서 실행안됨
-# 노트북에서 버전 낮추면 Rstudio가 실행안됨...
-# 해결하고 추후 마저 작성성
 
 
 

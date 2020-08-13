@@ -67,6 +67,7 @@ summary(mpg)   # 통계요약 정보 출력
 
 # dplyr 패키지 설치
 install.packages('dplyr')
+install.packages('ggplot2')
 
 # dplyr 패키지 로딩
 library(dplyr)
