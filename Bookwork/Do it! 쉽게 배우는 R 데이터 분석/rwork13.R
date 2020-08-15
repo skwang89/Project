@@ -1,5 +1,5 @@
 # rwork13.R start
-# <<구글차트 활용하기>>
+# <<구글차트 활용하기 시작>>
 
 
 # 구글차트
@@ -163,12 +163,5 @@ ggmap(map) + geom_text(data = df, aes(x=lon, y=lat),
 
 
 
-
-
-
-
-
-
-
-
-
+# <<구글차트 활용하기 끝>>
+# rwork13.R end
