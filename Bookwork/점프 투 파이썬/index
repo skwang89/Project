@@ -31,7 +31,16 @@ pywork7.py
     교재 8장 - 종합문제
 
 pywork8.py
-    강의 복습 1.
+    강의 복습 1 - 변수, 연산자, 내장함수
+
+pywork9.py
+    강의 복습 2 - 제어문
+        조건문: if, if - else, if - elif - else
+        반복분: for, while
+        보조 제어문: break, continue
+
+pywork10.py
+    강의 복습 3 -
 
 
 
