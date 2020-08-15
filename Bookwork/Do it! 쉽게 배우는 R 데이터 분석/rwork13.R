@@ -100,22 +100,66 @@ map <- get_googlemap(center = cen, zoom = 10,
 # : 'device'는 지도를 출력창에 여백없이 출력
 ggmap(map, extent = 'panel')
 
-#--------------------------------------------------------------------
+#------------------------------------------------------------------
+# 제주도 관광지 지도 출력 
 
+# 패키지 설치
+install.packages('ggmap')
+install.packages('Rcpp')
 
+# 패키지 로딩
+library(Rcpp)
+library(ggmap)
 
+# APIkey를 라이브러리에 등록 : 본인의 key를 등록 해서 사용
+register_google(key = 'AIzaSyC5S4zaVBJEG0Nh4ovde1Q6H-sFh16yRcg')
 
+# 각 지역 이름
+names <- c("용두암","성산일출봉","정방폭포",
+           "중문관광단지","한라산1100고지","차귀도")
 
+# 각 지역의 주소
+addr <- c("제주시 용두암길 15",
+          "서귀포시 성산읍 성산리",
+          "서귀포시 동홍동 299-3",
+          "서귀포시 중문동 2624-1",
+          "서귀포시 색달동 산1-2",
+          "제주시 한경면 고산리 125")
 
+# 각 지역 주소의 위도, 경도 구하기
+gc <- geocode(enc2utf8(addr))
+gc
+#    lon   lat
+#    <dbl> <dbl>
+# 1  127.  33.5
+# 2  127.  33.5
+# 3  127.  33.3
+# 4  126.  33.3
+# 5  126.  33.4
+# 6  126.  33.3
 
+# 각 지역명과 위도, 경도를 가진 데이터 프레임 생성
+df <- data.frame(names, 
+                 lon=gc$lon,
+                 lat=gc$lat)
+df
 
+# 중심 좌표 계산
+# : 데이터프레임에 있는 모든 경도와 위도에 대한 평균치
+cen <- c(mean(df$lon), mean(df$lat))
+cen
+# 126.51905  33.36025
 
+# 지도 생성
+map <- get_googlemap(center = cen,
+                     maptype = "roadmap",
+                     zoom = 9,
+                     # size = c(800, 800),
+                     markers = gc)
 
-
-
-
-
-
+# 지도 출력
+ggmap(map) + geom_text(data = df, aes(x=lon, y=lat),
+                       size=3, label=df$names)
 
 
 
