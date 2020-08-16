@@ -173,33 +173,7 @@ except Exception as err:
 finally:
     con.close()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# sqlite, oracle, MongoDB 연동 생략
 
 
 # <<강의 복습 6. 끝>>
