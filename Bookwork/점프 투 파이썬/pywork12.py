@@ -340,30 +340,290 @@ print(obj.sub(10, 20))          # -10
 # 3. 메소드 오버라이딩을 하면, 메소드 오버라이딩된 메소드만 호출된다.
 # 4. 부모클래스의 은닉된 메소드를 호출하려면, 자식클래스의 메소드 안에서 super()를 이용해서
 #     호출하면 된다.  ex) super().mymethod()
+class A:                            # 부모 클래스
+    def mymethod(self):
+        print('부모 메소드')
+class B(A):                         # 자식 클래스
+    def mymethod(self):             # 메소드 오버라이딩
+        super().mymethod()          # 부모클래스의 은닉 메소드를 호출함
+        print('B클래스의 메소드')
+class C(A):                         # 자식 클래스
+    def mymethod(self):             # 메소드 오버라이딩
+        print('C클래스의 메소드')
 
+a = A()
+a.mymethod()
+b = B()
+b.mymethod()                        # 메소드 오버라이딩된 메소드가 호출된다.
+c = C()
+c.mymethod()                        # 메소드 오버라이딩된 메소드가 호출된다.
 
+# 메소드 오버라이딩
+class Star:                         # 부모 클래스
+    def attack(self):
+        print('스타의 어텍')
+class Terran(Star):                 # 자식 클래스
+    def attack(self):               # 메소드 오버라이딩
+        super().attack()            # 은닉된 메소드 호출
+        print('테란의 어텍')
+class Zerg(Star):                   # 자식 클래스
+    def attack(self):               # 메소드 오버라이딩
+        print('저그의 어텍')
 
+t = Terran()
+t.attack()                          # 메소드 오버라이딩된 메소드만 호출된다.
+z = Zerg()
+z.attack()                          # 메소드 오버라이딩된 메소드만 호출된다.
 
+# 상속에서의 생성자
+# 1. 생성자는 상속되지 않는다.
+# 2. 자식클래스로 객체를 생성할때 자식클래스의 생성자가 호출된다.
+#    자식클래스에 생성자가 없을 경우에는 기본 생성자를 만들어 준다.
+# 3. 자식클래스의 생성자가 호출되면 부모클래스의 기본 생성자를 연쇄적으로 호출해준다.
+class A:  # 부모 클래스
+    def __init__(self):  # 기본 생성자
+        self.message = 'Hello World'
+    def print_message(self):  # 메소드
+        print(self.message)
 
+class B(A):  # 자식클래스
+    pass
 
+if __name__ == '__main__':
+    # a = A()                               # 객체를 생성할때 생성자를 호출한다.
+    # a.print_message()
+    b = B()
+    b.print_message()
 
+# 상속에서의 생성자
+# 1. 자식클래스의 생성자가 있을 경우에는, 부모의 기본 생성자를 자동으로 호출해주지 않는다.
+# 2. 자식클래스에서 부모클래스의 생성자를 호출하기 위해서는 super()를 이용해서 호출한다.
+#    ex)  super().__init__()
+class A:                                # 부모 클래스
+    def __init__(self):                 # 기본 생성자
+        print('부모 생성자')
+        self.message = 'Hello'
 
+class B(A):                             # 자식 클래스
+    def __init__(self):                 # 기본 생성자
+        print('자식 생성자')
+        super().__init__()              # 부모클래스의 생성자를 호출
+        print(self.message)
 
+if __name__=='__main__':
+    b = B()
 
+# 클래스의 다중상속
+# : 2개 이상의 부모 클래스로 부터 상속을 받는 것을 의미함
+class Add:                          # 부모 클래스
+    def add(self, n1, n2):
+        print('Add')
+        return n1 + n2
 
+class Multiply:                     # 부모 클래스
+    def add(self, n1, n2):
+        print('Multiply')
+        return n1 + n2
+    def multiply(self, n1, n2):
+        return n1 * n2
 
+# 클래스의 다중상속 : Add, Multiply 클래스를 상속 받는다.
+class Calculator(Add, Multiply):   # 자식 클래스
+    def sub(self, n1, n2):
+        return n1 -n2
 
+obj = Calculator()
+print(obj.add(10, 20))              # 30
+print(obj.multiply(10, 20))          # 200
+print(obj.sub(10, 20))              # -10
 
+# 예외 처리.
+# 예외 : 프로그램상에서 발생하는 예상하지 못한 오류
+# 예외 처리 : 프로그램을 안전하게 종료 시키지 위해서 예외처리를 한다.
 
+# 예외처리 형식 : try  ~ except
+'''
+try:
+    예외가 발생할 가능성이 있는 문장
+except:
+    예외가 발생 했을때 실행될 문장
+'''
+try:
+    print('안녕 하세요')
+    print(10/0)                             # 예외 발생
+    n = int(input('정수를 입력'))
+    if n%2==0:
+        print('짝수')
+    else:
+        print('홀수')
+except:
+    print('예외 발생')
 
+# try ~ except ~ except
+list = [1, 2, 3]
+try:
+    index = int(input('첨자(index번호)를 입력하세요?'))   # 0, 1, 2
+    print(list[index]/0)
+except ZeroDivisionError:               # 0으로 나눌때 예외발생
+    print('0으로 나눌수 없습니다.')
+except IndexError:                      # 첨자(index번호)를 잘못 입력했을때 예외발생
+    print('잘못된 첨자 입니다.')
+except ValueError:                      # 잘못된 값을 입력 했을때 예외발생
+    print('숫자를 입력하세요.')
 
+# 예외처리 : try ~ except ~ except
+# Exception 클래스로 예외를 받으면 다른 except 가 무시된다.
+list = [1, 2, 3]
+try:
+    index = int(input('첨자(index)를 입력하세요?'))
+    print(list[index]/0)
+except Exception as err:
+    print('예외발생:{0}'.format(err))
+except ZeroDivisionError as err:
+    print('0으로 나눌수 없습니다.{0}'.format(err))
+except IndexError as err:
+    print('잘못된 첨자 입니다.{0}'.format(err))
+except ValueError as err:
+    print('숫자를 입력하세요.{0}'.format(err))
+# except Exception as err:
+#      print('예외발생:{0}'.format(err))
 
+# 예외처리 : try ~ except ~ else
+# try에 대한 else가 아니라, except에 대한 else
+'''
+try:
+    예외가 발생할 가능성이 있는 문장
+except:
+    예외가 발생 했을때 실행될 문장
+else:
+    except절이 실행되면 실행안됨
+    except절이 실행되지 않는 경우에 실행
+'''
+list = [1, 2, 3]
+try:
+    index = int(input('첨자(인덱스 번호)를 입력하세요?'))
+    print('list[{0} : {1}]'.format(index, list[index]))
+except Exception as err:
+    print('예외가 발생 했습니다.{0}'.format(err))
+else:
+    print('리스트의 요소 출력에 성공 했습니다.')
 
+# 예외처리 : try ~ excep ~ finally
+'''
+try:
+    예외가 발생할 가능성이 있는 문자
+except:
+    예외가 발생 했을때 실행될 문장
+finally:
+    예외 유.무에 상관없이 무조건 실행
+    파일 닫기, 데이터베이스와 연결을 끊는 내용
+'''
+try:
+        print('안녕 하세요?')
+        print(param)                # 예외발생
+except:
+        print('예외가 발생 했습니다.')
+finally:
+        print('무조건 실행')
 
+# 예외처리 : try ~ except ~ else ~ finally
+'''
+try:
+    예외가 발생할 가능성이 있는 문자
+except:
+    예외가 발생 했을때 실행될 문장
+else:
+    except절이 실행되면 실행안됨
+    except절이 실행되지 않는 경우에 실행됨
+finally:
+    예외 유.무에 상관없이 무조건 실행
+    파일 닫기, 데이터베이스와 연결을 끊는 내용
+'''
+list = [1,2,3]
+try:
+    index = int(input('첨자(인덱스 번호)를 입력하세요?'))
+    print('list[{0} : {1}]'.format(index, list[index]))
+except Exception as err:
+    print('예외가 발생했습니다.{0}'.format(err))
+else:
+    print('리스트의 요소 출력에 성공 했습니다.')
+finally:
+    print('어떤 일이 있어도 마무리 합니다.')
 
+# raise문: 프로그래머가 강제로 예외를 발생
+def some_function():
+    num = int(input('1~10 사이의 정수를 입력하세요?'))
+    if num<1 or num>10:     # 강제로 예외발생 시킴
+        raise  Exception('유효하지 않는 숫자입니다.{0}'.format(num))
+    else:
+        print('입력한 숫자는 {0}입니다.'.format(num))
 
+try:
+    some_function()                     # 함수 호출
+except Exception as err:
+    print('예외가 발생 했습니다.{0}'.format(err))
 
+# 사용자 정의 예외 클래스
+class MyException(Exception):       # Exception클래스를 상속 받아서 만든다.
+    def __init__(self, arg):        # 생성자
+      super().__init__('정수가 아닙니다.:{0}'.format(arg)) # 부모(Exception)의
+                                                          # 생성자 호출
+# 문자를 숫자로 변환 해주는 함수
+def convert(text):
+    if text.isdigit():              # 숫자 형태의 문자면 True 리턴
+        return int(text)
+    else:
+        raise MyException(text)     # 강제로 예외발생
 
+try:
+    text = input('정수를 입력하세요?')
+    number = convert(text)         # 함수 호출
+except MyException as err:
+    print('예외가 발생 했습니다.{0}'.format(err))
+else:
+    print('정수 형식으로 변환되었습니다.{0} {1}'.format(number, type(number)))
+
+# 파일처리.
+# data/test.txt 파일 읽기 : read()함수
+# read() : 텍스트 파일의 모든 내용을 읽어와서 리턴
+# 1. 읽기모드로 test.txt 파일 열기 : 상대경로
+file = open('data/test.txt', 'r', encoding='utf-8')
+#  읽기모드로 test.txt 파일 열기 : 절대경로
+# file = open('C:/workspace-total/pythonworkspace/점프 투 파이썬/data/test.txt', 'r', encoding='utf-8')
+# 2. test.txt 파일의 모든 내용을 읽어와서 str변수에 저장
+str = file.read()
+print(type(str))                # 'str'
+print(str)
+# 3. 파일 닫기
+file.close()
+
+# data/movie_quotes.txt 파일 읽기 : readline()
+# readline() : 줄 단위로 텍스트를 읽어오는 역할
+# 1. 파일 열기
+file = open('data/movie_quotes.txt', 'r')
+# 2. 파일 읽기
+line = file.readline()  # 첫번째 줄을 읽어옴
+print('line:', line)
+# readline() 함수는 파일의 끝에 도달하면 ''을 리턴함
+while line != '':
+    print(line, end='')
+    line = file.readline()
+# 3. 파일 닫기
+file.close()
+
+# data/movie_quotes.txt 파일 읽기 : readlines()
+# readlines() : 텍스트 파일을 줄 단위로 한꺼번에 읽어와서 리스트로 리턴
+# 1.파일 열기
+file = open('data/movie_quotes.txt', 'r')
+# 2. 파일 읽기
+# 텍스트 파일을 한꺼번에 읽어와서 리스트로 리턴함
+lines = file.readlines()
+print(type(lines))              # 'list'
+print(lines)                    # ["we'll find a way we always have - Interstellar\n", "I'll find you and I'll
+for line in lines:
+    print(line, end='')
+# 3. 파일 닫기
+file.close()
 
 
 

@@ -394,6 +394,23 @@ result2 = sorted(result)
 print('reuslt2:', result2)
 # print(sorted(result))
 
+# 다음과 같은 정보가 있는 리스트에서 나이(age)를 기준으로 오름차순으로 정렬하는 프로그램을  작성 하세요?
+people = [
+    {'name': 'noah', 'age': 19},
+    {'name': 'liam', 'age': 23},
+    {'name': 'jacob', 'age': 9},
+    {'name': 'mason', 'age': 21}
+]
+# 방법1.
+people.sort(key=lambda x : x['age'])
+print(people)
+# 방법2.
+result = sorted(people, key=lambda x : x['age'])
+print(result)
+
+
+
+
 # 모듈.
 # 모듈이란 함수나 변수 또는 클래스 들을 모아 놓은 파일이다
 # • 일반적으로는 “독자적인 기능을 갖는 구성 요소”를 의미
@@ -640,7 +657,6 @@ print(cal.multiply(10,5))
 print(cal.divide(10,5))
 
 # 외부 모듈파일 불러오기
-
 import numpy as np
 import pandas as pd
 

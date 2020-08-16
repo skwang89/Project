@@ -132,6 +132,28 @@ elif s >= 60:
 else:
     print('F학점')
 
+# 소수(prime number) 판별 프로그램 작성
+'''
+소수(prime number)
+: 양의 약수가 1과 자기 자신 뿐인 1보다 큰 자연수로 정의
+
+2보다 큰 정수를 입력받아서 소수인지 판별
+소수는 2부터 자신의 절반이 되는 숫자까지 나누어서 한번도 나누어 떨어지지 않는 숫자
+2,3,5,7,11,13 등이 소수
+'''
+pn = int(input('정수입력'))
+max = pn // 2
+#나누어 떨어지는지 아닌지 여부를 표시하기 위한 변수
+flag = False
+for i in range(1, max+1):
+    if(pn % i == 0):
+        flag = True
+        break
+if flag == False:
+    print('소수')
+else:
+    print('소수가 아님')
+
 # 반복문: while문
 # while  조건식 :
 #     조건식이 참인 경우에 실행될 문장
