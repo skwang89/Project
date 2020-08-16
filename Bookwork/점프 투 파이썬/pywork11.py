@@ -408,8 +408,28 @@ print(people)
 result = sorted(people, key=lambda x : x['age'])
 print(result)
 
-
-
+# 다음과 같은 리스트에 원소중 최대값과 최대값의 위치(인덱스 번호)를 구하는
+# 프로그램을 작성하세요?
+# [17, 92, 18, 33, 58, 7, 33, 42]
+v = [17, 92, 18, 33, 58, 7, 33, 42]
+# 최대값 구하기
+def find_max(a):
+    n = len(a)
+    max = a[0]
+    for i in range(1, n):
+        if a[i] > max:
+            max = a[i]
+    return max
+print(find_max(v))
+# 최대값의 위치 구하기
+def find_max_idx(a):
+    n = len(a)
+    max_idx = 0
+    for i in range(1, n):
+        if a[i] > a[max_idx]:
+            max_idx = i
+    return max_idx
+print(find_max_idx(v))
 
 # 모듈.
 # 모듈이란 함수나 변수 또는 클래스 들을 모아 놓은 파일이다

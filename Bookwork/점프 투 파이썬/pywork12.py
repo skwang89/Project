@@ -584,6 +584,16 @@ else:
     print('정수 형식으로 변환되었습니다.{0} {1}'.format(number, type(number)))
 
 # 파일처리.
+# 파일 열기 모드: open() 함수의 두번째 매개변수
+# 문자 의미
+# 'r' 읽기용으로 열기 (기본값)
+# 'w' 쓰기용으로 열기. 이미 같은 경로에 파일이 존재하면 파일내용을 비움.
+# 'x' 배타적 생성모드로 열기. 파일이 존재하면 IOError 예외일으킴.
+# 'a' 쓰기용으로 열기. 단, ‘w’와는 달리 이미 같은 경로에 파일이 존재하는 경우 기존 내용에 덧붙이기를 함.
+# 'b' 바이너리 모드
+# 't' 텍스트 모드(기본값)
+# ‘+’ 읽기/쓰기용으로 파일 읽기
+
 # data/test.txt 파일 읽기 : read()함수
 # read() : 텍스트 파일의 모든 내용을 읽어와서 리턴
 # 1. 읽기모드로 test.txt 파일 열기 : 상대경로
@@ -624,6 +634,135 @@ for line in lines:
     print(line, end='')
 # 3. 파일 닫기
 file.close()
+
+# data/test.txt  파일읽기 : read()
+# with open() 형식으로 파일을 열면, close()함수로 닫는 것을 생략할 수 있다.
+with open('data/test.txt', 'r', encoding='utf-8') as file:
+    str = file.read()
+    print(type(str))            # 'str'
+    print(str)
+
+# data/stockcode.txt 파일을 읽어와서 출력
+# read() : 텍스트 파일의 모든 내용을 읽어오는 역할
+with open('data/stockcode.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
+    print(data)
+
+# data/stockcode.txt 파일을 읽어와서 출력
+# readline() : 텍스트 파일의 한줄만 읽어오는 역할
+with open('data/stockcode.txt', 'r', encoding='utf-8') as file:
+    line = file.readline()          # 첫번째 줄을 읽어옴
+    num = 1
+    while line != '':
+        print('%d %s' %(num, line), end='')
+        line = file.readline()
+        num += 1
+
+# data/stockcode.txt 파일을 읽어와서 출력
+# readlines() : 텍스트 파일을 한꺼번에 읽어와서 리스트로 리턴
+with open('data/stockcode.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()        # 읽어온 내용을 리스트로 리턴
+    print(type(lines))              # 'list'
+    print(lines)                    # ['000020 동화약품\n', '000040 S&T모터스\n', '000050 경방\n'
+    # enumerate() : 리스트의 인덱스 번호와 원소를 리턴하는 함수
+    for num, line in enumerate(lines):
+        print('%d %s'%(num+1, line), end='')
+
+# 파일 생성(파일 쓰기) : write()
+# 리스트에 저장된 데이터를 읽어와서 파일로 저장
+lines = ['안녕 하세요\n','Hello\n','Good Morning\n']
+with open('data/greetings.txt','w',encoding='utf-8') as file:
+    for line in lines:
+        file.write(line)
+
+# 파일 생성(파일 쓰기) : write()
+# 1. 쓰기 모드로 열기
+file = open('data/text.txt', 'w', encoding='utf-8')
+# 2. 파일 쓰기 : 저장
+file.write('안녕\n반갑습니다.\n')
+print('저장 성공')
+# 3. 파일 닫기
+file.close()
+
+# 파일 생성(파일 쓰기) : writelines() 함수
+# writelines() : 리스트의 내용을 읽어와서 파일로 저장하는 역할
+lines = ['안녕 하세요\n','Hello\n','Good Morning\n']
+with open('data/greetings01.txt', 'w', encoding='utf-8') as file:
+    file.writelines(lines)
+
+# 사용자가 키보드로 입력한 내용을 파일로 저장하기 : write()
+text = input('파일에 저장할 내용을 입력하세요?')
+with open('data/save.txt', 'w', encoding='utf-8') as file:
+    file.write(text)
+print('저장 성공')
+
+# 키보드로 입력한 내용을 파일로 저장하기 : writelines()
+# writelines() : 리스트의 내용을 읽어와서 파일로 저장하는 역할
+count = 1
+data = []                       # 비어있는 리스트
+print('파일에 내용을 저장하려면, 내용을 입력하지 말고 Enter키를 누르세요.')
+while True:
+    text = input('[%d] 파일에 저장할 내용을 입력하세요?'%count)
+    if text == '':              # 아무런 값을 입력하지 않고 Enter키 누르면
+        break                   # 무한루프를 빠져나옴
+    data.append(text+'\n')      # 키보드로 입력한 내용을 리스트에 추가함.
+    count += 1
+print(data)
+with open('data/save01.txt', 'w', encoding='utf-8') as file:
+    file.writelines(data)
+
+
+# 텍스트 파일(data/data.txt)에서 wordcount를 내림차순으로 정렬해서 출력
+# 딕셔너리 = { '단어' : 빈도수 }
+# 각 단어의 빈도수를 구해주는 함수
+def getTextFreq(filename):
+    with open(filename, 'r', encoding='utf-8') as f:
+        text = f.read()  # data.txt 파일 전체 내용을 읽어옴
+        tmp = text.split()  # split()함수로 파싱된 단어들을 리스트로 리턴
+        fa = {}  # 비어있는 딕셔너리
+        for c in tmp:
+            if c in fa:  # 딕셔너리 fa에 key(단어)가 존재하면
+                fa[c] += 1  # 해당단어의 빈도수를 1증가
+            else:  # 딕셔너리 fa에 key(단어)가 없으면
+                fa[c] = 1  # 딕셔너리에 빈도수 1 할당(처음 나온 단어)
+    return fa  # 함수를 호출한 곳에 딕셔너리 리턴
+
+# result = getTextFreq('data/data.txt')
+result = getTextFreq('data/alice.txt')
+# result = getTextFreq('data/hong.txt')
+print(type(result))  # 'dict'
+print(result)
+print(sorted(result.items()))  # 단어(key)를 기준으로 오름차순 정렬(사전순 정렬)
+print(sorted(result.items(), key=lambda x: x[0]))
+# 단어의 빈도수를 기준으로 내림차순 정렬 : 10, 9, 8,...
+result = sorted(result.items(), key=lambda x: x[1], reverse=True)
+print(result)
+for c, freq in result:
+    print('[%s] - [%d]회' % (c, freq))
+
+
+# 텍스트 파일(data/data.txt)에 키보드로 입력한 단어의 갯수 구하기
+# 키보드로 입력한 단어의 빈도수를 구해주는 함수
+def countWord(filename, word):
+    with open(filename, 'r') as f:
+        text = f.read()
+        text = text.lower()  # 소문자로 변환
+        list = text.split()  # split()함수로 파싱된 단어들을 리스트로 리턴
+        count = list.count(word)  # count()함수로 찾을 단어의 빈도수를 구함
+    return count
+
+word = input('data.txt 파일에서 찾을 단어를 입력하세요?')
+word = word.lower()  # 소문자로 변환
+# result = countWord('../data/data.txt', word)
+result = countWord('../data/alice.txt', word)
+print('[%s]의 갯수: %d회' % (word, result))
+
+
+
+
+
+
+
 
 
 

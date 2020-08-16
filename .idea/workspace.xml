@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/index" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork11.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork11.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork12.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork12.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork9.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork9.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -235,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597556027677</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add">
+      <created>1597560806429</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1597560806429</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,6 +268,7 @@
     <MESSAGE value="add pywork9" />
     <MESSAGE value="add pywork11" />
     <MESSAGE value="add pywork12" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pywork12" />
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
 </project>
