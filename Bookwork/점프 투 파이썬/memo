@@ -1,0 +1,6 @@
+# 파이썬 작업공간 변수 클리어 명령어
+all = [var for var in globals() if var[0] != "_"]
+for var in all:
+    del globals()[var]
+del(all)
+del(var)
