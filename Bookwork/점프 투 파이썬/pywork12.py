@@ -753,42 +753,156 @@ def countWord(filename, word):
 
 word = input('data.txt 파일에서 찾을 단어를 입력하세요?')
 word = word.lower()  # 소문자로 변환
-# result = countWord('../data/data.txt', word)
-result = countWord('../data/alice.txt', word)
+# result = countWord('data/data.txt', word)
+result = countWord('data/alice.txt', word)
 print('[%s]의 갯수: %d회' % (word, result))
 
+# pandas로 csv파일 읽기
+import pandas as pd
+# pandas 모듈을 이용해서 csv파일을 읽어와서 데이터프레임을 만든다.
+df = pd.read_csv('data/list-utf8.csv', encoding='utf-8')
+print(type(df))
+print(df)
+#     ID    이름   가격
+# 0  1000   비누  300
+# 1  1001   장갑  150
+# 2  1002  마스크 230
 
+# 컬럼명으로 해당 정보 구하기
+print(df['ID'])
+print(df['이름'])
+print(df['가격'])
 
+# pandas로 데이터 프레임을 생성하고, 생성된 데이터프레임을 csv파일에 저장
+import pandas as pd
+data = [[1,2,3,4],[5,6,7,8]]        # 중첩리스트
+# 데이터 프레임 생성
+df = pd.DataFrame(data)
+print(df)
+#    0  1  2
+# 0  1  2  3  4
+# 1  5  6  7  8
 
+# 데이터프레임을 csv로 저장
+df.to_csv('data/df.csv', header=False, index=False)
+print('저장 성공')
 
+# pandas로 excel파일 읽기
+import pandas as pd
+# 엑셀 파일 열기
+book = pd.read_excel('data/stats_104102.xlsx',
+                     sheet_name='stats_104102',
+                     header=1)      # 첫번째 줄을 헤드로 설정
+print(book)
+# 2015년 인구수로 내림차순 정렬
+book = book.sort_values(by=2015, ascending=False)
+print(book)
 
+# 기상청의 날씨 정보 구하기: xml 파일 읽기
+from bs4 import BeautifulSoup
+import urllib.request as req
+import os.path
+url='http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnid=108'
+savename = 'forecast.xml'
 
+if not os.path.exists(savename):
+    req.urlretrieve(url, savename)
 
+# BeautifulSoup로 분석하기
+xml = open(savename, 'r', encoding='utf-8').read()
+soup = BeautifulSoup(xml, 'html.parser')
+# print(soup)
 
+# 전구 날씨정보를 info딕셔너리에 저장
+info = {}                       # info = { name : weather }
+for location in soup.find_all('location'):
+    name = location.find('city').text           # 도시명
+    wf = location.find('wf').string             # 날씨
+    tmx = location.find('tmx').string           # 최고기온
+    tmn = location.find('tmn').string           # 최저기온
+    weather = wf + ':' + tmn + '~' + tmx
+    if name not in info:
+        info[name] = []
+    info[name].append(weather)
+print(info)
 
+# 각 지역의 날씨를 구분해서 출력
+for name in info.keys():
+    print('+', name)
+    for weather in info[name]:
+        print('|', weather)
 
+# github의 repository정보를 json 파일로 저장후 읽어오기
+import os.path
+import json
 
+# json 파일 다운로드
+url = 'https://api.github.com/repositories'
+savename = 'repo.json'
+if not os.path.exists(savename):     # 현재 디렉토리에 repo.json파일이 없으면
+    req.urlretrieve(url, savename)   # repo.json 파일 다운로드
 
+# repo.json 파일 읽어오기
+items = json.load(open(savename, 'r', encoding='utf-8'))
+print(type(items))
+print(items)
 
+# 출력하기
+for item in items:
+    print(item['name']+'-'+item['owner']['login'])
 
+# data/item.json 파일 읽어오기
+import json
 
+# json 파일 읽기
+items = json.load(open('data/item.json', 'r', encoding='utf-8'))
+print(type(items))
+print(items)
 
+for item in items:
+    print(item['id']+'-'+item['name']+'-'+item['price']+'-'+item['description'])
 
+# 다음과 같은 내용의 파일 abc.txt 가 있다.
+#         AAA
+#         BBB
+#         CCC
+#         DDD
+#         EEE
+#
+#        이 파일의 내용을 다음과 같이 역순으로 바꾸어 result.txt로 저장 하세요?
+#        EEE
+#        DDD
+#        CCC
+#        BBB
+#        AAA
+with open('abc.txt', 'r') as f:
+    lines = f.readlines()
+    print(lines)
 
+lines.reverse()
+print(lines)
 
+with open('result.txt', 'w') as f:
+    for line in lines:
+        line = line.strip()
+        f.write(line+'\n')
 
+#  다음과 같이 총 10줄로 이루어진 sample.txt 파일이 있다.
+#  sample.txt 파일의 숫자 값을 모두 읽어 총합과 평균값을 구한 후 평균값을 result.txt 파일에
+#  저장하는 프로그램을 작성하세요?
+with open('sample.txt', 'r') as f:
+    lines = f.readlines()
+    print(lines)                 # ['70\n', '60\n', '55\n', '75\n', '95\n', '90\n', '80\n', '80\n', '85\n', '100']
 
+total = 0
+for line in lines:
+    total += int(line)
+avg = total / len(lines)
+print('total:', total)           # total: 790
+print('avg:', avg)               # avg: 79.0
 
-
-
-all = [var for var in globals() if var[0] != "_"]
-for var in all:
-    del globals()[var]
-del(all)
-del(var)
-
-import sys
-sys.modules[__name__].__dict__.clear()
+with open('result.txt', 'w') as f:
+    f.write(str(avg))
 
 
 # <<강의 복습 5. 끝>>
