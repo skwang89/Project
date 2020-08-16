@@ -1,4 +1,9 @@
 # 파이썬 작업공간 변수 클리어 명령어
+# Special Variables 까지 모두 삭제
+import sys
+sys.modules[__name__].__dict__.clear()
+
+# Special Variables 제외한 모든 변수 삭제(이름에 '_'가 들어있으면 삭제하지 않음)
 all = [var for var in globals() if var[0] != "_"]
 for var in all:
     del globals()[var]
