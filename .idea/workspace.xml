@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork15.py" afterDir="false" />
+    <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="add pywork15">
+      <change afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork16.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/index" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork14.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork14.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork15.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork15.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -268,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597591094990</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="add pywork15">
+      <created>1597633486834</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1597633486834</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,7 +305,8 @@
     <MESSAGE value="add pywork12" />
     <MESSAGE value="add" />
     <MESSAGE value="add pywork14" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pywork14" />
+    <MESSAGE value="add pywork15" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pywork15" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -307,6 +315,11 @@
           <url>file://$PROJECT_DIR$/workspace-python/2020_06_22/regular/string_find.py</url>
           <line>9</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/workspace-python/2020_06_25/pandas/pd_extract.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
