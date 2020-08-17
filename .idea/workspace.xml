@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork17.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork17.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork18.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork18.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -302,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597655841070</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="add pywork18">
+      <created>1597662573912</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1597662573912</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -335,7 +342,8 @@
     <MESSAGE value="add pywork15" />
     <MESSAGE value="add pywork16" />
     <MESSAGE value="add pywork17" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pywork17" />
+    <MESSAGE value="add pywork18" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pywork18" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
