@@ -234,26 +234,11 @@ print(p.sub('color', 'blue socks and red shoes'))
 # color socks and color shoes
 
 # 치환하는 횟수 지정
-# blue, white, red 라는 문자를 color로 치환(1번만 치환함)
+# blue, white, red 라는 문자
+# 를 color로 치환(1번만 치환함)
 print(p.sub('color', 'blue socks and red shoes', count=1))
 color socks and red shoes
 
-
-
-
-
-
-
-
-
-all = [var for var in globals() if var[0] != "_"]
-for var in all:
-    del globals()[var]
-del(all)
-del(var)
-
-import sys
-sys.modules[__name__].__dict__.clear()
 
 # <<강의 복습 7. 끝>>
 # pywork14.py end
