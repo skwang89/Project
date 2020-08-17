@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork17.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/index" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork15.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork15.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork16.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bookwork/점프 투 파이썬/pywork16.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,6 +25,7 @@
   </component>
   <component name="ProjectId" id="1fvh850kRowQ0I7QnkVs0Cwybh3" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Bookwork" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -282,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597643111524</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="add pywork16">
+      <created>1597645877775</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1597645877776</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
