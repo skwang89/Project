@@ -9,3 +9,87 @@ for var in all:
     del globals()[var]
 del(all)
 del(var)
+
+# 브라우저 크롬으로 실행할때 코드 1.
+Chrome = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
+webbrowser.register(name=Chrome, klass=None,
+                    instance=webbrowser.BackgroundBrowser(Chrome),
+                    preferred=True)
+webbrowser.open(seoul)
+
+# 브라우저 크롬으로 실행할때 코드 2.
+import webbrowser
+url = 'http://docs.python.org/'
+# MacOS
+chrome_path = 'open -a /Applications/Google\ Chrome.app %s'
+# Windows
+# chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+# Linux
+# chrome_path = '/usr/bin/google-chrome %s'
+webbrowser.get(chrome_path).open(url)
+
+
+
+# 출처: https://bryan7.tistory.com/1077 [민서네집]
+# 1. Google Colab 런타임 연결 끊김 방지
+Google Colab을 실행시키는 크롬 브라우저 창에서
+F12 (혹은 Ctrl-Shift-i)를 눌러서 개발자 도구 창을 열고
+Console 창에서 아래와 같이 입력을 해주면 된다.
+'''
+function ClickConnect() {
+    // 백엔드를 할당하지 못했습니다.
+    // GPU이(가) 있는 백엔드를 사용할 수 없습니다. 가속기가 없는 런타임을 사용하시겠습니까?
+    // 취소 버튼을 찾아서 클릭
+    var buttons = document.querySelectorAll("colab-dialog.yes-no-dialog paper-button#cancel");
+    buttons.forEach(function(btn) {
+		btn.click();
+    });
+    console.log("1분마다 자동 재연결");
+    document.querySelector("#top-toolbar > colab-connect-button").click();
+}
+setInterval(ClickConnect,1000*60);
+'''
+참고
+런타임 유형을 GPU로 하는 것이 CPU로 하는 것보다 60배 이상 학습속도가 빠른것 같다.
+그런데 Google Colab에서 런타임 유형을 GPU로 하면 연결이 잘 안될 때가 많다.
+한국 시간 아침 7시 30분 이후에 연결하면 GPU로 연결이 잘 되고, 저녁 때는 연결이 잘 안된다. 아무래도 미국 등 외국에서 많이 사용해서 그런 것 같다.
+
+
+# 2. Google Colab 에서
+buffered data was truncated after reaching the output size limit 방지
+
+model.fit() 함수에서 파라미터를 verbose=1 로 하면 트레이닝 시
+buffered data was truncated after reaching the output size limit 라고
+출력이 나오고, 그 뒤로는 출력 결과가 화면에 표시가 안될 때가 있다.
+백그라운드에서 계속 실행은 되는것 같은데, 출력 결과가 안 나와서
+제대로 실행되고 있는지 확인이 안된다.
+
+model.fit() 함수에서 파라미터를 verbose=0 혹은 2로 하면
+이와 같은 현상을 막을 수 있는데, 0 으로 하면 Training 할 때
+log가 전혀 출력이 안되서 답답하니까 2로 하는게 좋다.
+'''
+ verbose: Integer. 0, 1, or 2. Verbosity mode. 0 = silent, 1 = progress bar, 2 = one line per epoch.
+'''
+[출처] https://keras.io/models/model/
+
+# 3. Google Colab에서 30분마다 현재 출력창 지우기
+- 트레이닝 시 현재 실행 중인 셀의 출력이 너무 길어지면 보기 불편하므로
+30분마다 현재 실행 중인 셀의 출력을 지워주는 코드이다.
+위와 마찬가지로 크롬 브라우저의 Console 창에서 아래 코드를 실행해 준다.
+'''
+function CleanCurrentOutput(){
+	var btn = document.querySelector(".output-icon.clear_outputs_enabled.output-icon-selected[title$='현재 실행 중...'] iron-icon[command=clear-focused-or-selected-outputs]");
+	if(btn) {
+		console.log("30분마다 출력 지우기");
+		btn.click();
+	}
+}
+setInterval(CleanCurrentOutput,1000*60*30);
+'''
+
+
+
+
+
+
+
