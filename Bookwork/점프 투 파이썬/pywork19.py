@@ -86,7 +86,7 @@ text = data.decode("utf-8")
 print(text)
 # forecast.xml 파읷로 저장하기 ( w: 쓰기모드 )
 with open("forecast.xml", mode="w", encoding="utf-8") as f:
-f.write(text)
+    f.write(text)
 print("저장되었습니다...!")
 
 # 기상청의 날씨 정보 구하기 : xml 파일 읽기
@@ -453,10 +453,10 @@ for w in data:
 # requests 모듈
 # request 모듈은 로그인이 필요한 사이트에서 쿠키와 세션 정보를 구해오기
 # 위해서 사용되는 모듈입니다.
-# requests 모듈 설치 확읶
-c:\> pip list
+# requests 모듈 설치 확인
+# c:\> pip list
 # requests 모듈 설치
-c:\> pip install requests
+# c:\> pip install requests
 # 네이버나 다음 같은 검색 포털 사이트들은 검색 프로그램(로봇)이 쉽게
 # 로그인할 수 없게 보안적으로 막혀 있습니다.
 # 한빛 출판네트워크
@@ -548,60 +548,207 @@ print("이코인: " + ecoin)
 # 4.Safari
 # https://webkit.org/blog/6900/webdriver-support-in-safari-10/
 
+# selenium 모듈 이용한 예제
+# 웹 브라우저로 google 사이트 접속하기
+# selenium 모듈에서 webdriver를 불러온다
+from selenium import webdriver
+
+# 다운로드 받아 압축을 해제한 driver 파일 경로를 path 변수에 할당한다
+path = "chromedriver.exe"
+# 조금 기다리면 selenium으로 제어할 수 있는 브라우저 새창이 뜬다
+driver = webdriver.Chrome(path)
+# webdriver가 google 페이지에 접속하도록 명령
+driver.get('https://www.google.com')
+driver.get('https://www.youtube.com')
+
+# 웹사이트를 이미지 파일로 캡쳐
+from selenium import webdriver
+
+path = 'chromedriver.exe'
+driver = webdriver.Chrome(path)
+# 3초 대기
+driver.implicitly_wait(3)
+# URL 읽어들이기
+driver.get('https://www.nate.com')
+# 화면을 캡처해서 이미지 파일로 저장
+driver.save_screenshot('nate.png')
+# 브라우저 종료
+driver.quit()
+
+# 자바스크립트 실행하기
+from selenium import webdriver
+
+path = 'chromedriver.exe'
+driver = webdriver.Chrome(path)
+# 3초 대기
+driver.implicitly_wait(3)
+# 웹페이지 열기
+driver.get('https://www.google.com')
+# 자바 스크립트 실행
+r = driver.execute_script('return 100+50')
+print(r)
+
+# 웹 브라우저로 검색하기
+from selenium import webdriver
+
+path = 'chromedriver.exe'
+driver = webdriver.Chrome(path)
+driver.get('http://www.google.co.kr')
+# name='q' 태크를 구해옴
+elem = driver.find_element_by_name('q')
+# 검색어 입력창을 지운다.
+elem.clear()
+# 검색어 입력
+elem.send_keys('python')
+# 검색 실행
+elem.submit()
+
+# 네이버에 로그인해서 구매한 물건목록 출력
+# 접근 제한이 걸려있어 실습이 불가능
+from selenium import webdriver
+
+USER = ""             # naver.com userid 설정
+PASS = ""             # naver.com password 설정
+
+browser = webdriver.Chrome("c:/downloads/chromedriver.exe")
+browser.implicitly_wait(3)          # 3초 대기
+# 로그인 페이지에 접근하기
+browser.get("https://nid.naver.com/nidlogin.login")
+print("로그인 페이지에 접근합니다.")
+# 텍스트 박스에 아이디와 비밀번호 입력하기(회원인증)
+e = browser.find_element_by_id("id")
+e.clear()
+e.send_keys(USER)
+e = browser.find_element_by_id("pw")
+e.clear()
+e.send_keys(PASS)
+# 입력 양식 전송해서 로그인 하기
+form = browser.find_element_by_css_selector("input.btn_global[type=submit]")
+form.submit()
+print("로그인 버튼을 클릭합니다.")
+# 쇼핑 페이지의 데이터 가져오기
+browser.get("https://order.pay.naver.com/home?tabMenu=SHOPPING")
+# 쇼핑 목록 출력하기
+products = browser.find_elements_by_css_selector(".p_info span")
+print(products)
+for product in products:
+ print("-", product.text)
+
+ # 웹 API
+# 웹 API는 어떤 사이트가 가지고 있는 기능을 외부에서도 쉽게 사용할 수 있게
+# 공개한 것을 의미한다. 원래 API(Application Programming Interface)는 어떤
+# 프로그램 기능을 외부의 프로그램에서 호출해서 사용할 수 있게 만들 것을 의미 함.
+# 간단하게 서로 다른 프로그램의 기능을 공유할 수 있게 젃차와 규약을 정의한 것.
+# 일반적으로 HTTP 통싞을 사용하는데, 클라이언트 프로그램은 API를 제공하는
+# 서버에 HTTP 요청을 보내면, 서버에서는 XML 또는 JSON 형식 등으로 응답함.
+
+# 국내에서 사용할 수 있는 웹API
+# - http://www.apistore.co.kr/api/apiList.do
+# - http://mashup.or.kr/business/main/main.do
+# 네이버 개발자 센터와 다음 개발자 센터
+# - https://developers.naver.com/main/
+# - https://developers.daum.net
+# 쇼핑 정보
+# - http://api.danawa.com/main/index.html
+# - http://developer.auction.co.kr/
+# 주소 전환
+# - http://www.juso.go.kr/openIndexPage.do
+
+# OpenWeatherMap의 날씨 정보
+# 젂 세계의 모든 날씨 정보 등을 가지고 있는 OpenWeatherMap을 사용해서
+# 서울, 도쿄, New York 의 날씨 정보를 구해보자
+# OpenWeatherMap을 사용하려면 개발자 등록을 하고, API 키를 발급받아야 한다.
+# OpenWeatherMap은 기본적으로 유료 API이지만 현재 날씨, 5일까지의 날씨는
+# 무료로 사용할 수 있으며 단, 무료로 사용할 때에는 1분에 60번만 호출할 수 있습니다.
+# OpenWeatherMap
+# http://openweathermap.org
+import requests
+import json
+
+# API KEY
+apikey='474d59dd890c4108f62f192e0c6fce01'
+# 날씨를 확인할 도시
+cities = ['Seoul,KR','Tokyo,JP','New York,US']
+# API 지정
+api = "http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={key}"
+# 켈빈 온도를 섭씨 온도로 변환하는 함수
+k2c = lambda k : k - 273.15
+#각 도시의 날씨 정보 구하기
+for name in cities:
+    url = api.format(city=name, key=apikey)
+    # 도시별 날씨정보 요청
+    r =requests.get(url)
+    # json 형태의 정보 읽어오기
+    data = json.loads(r.text)
+    # print(data)
+    # 날씨 정보 출력
+    print('+도시=', data['name'])
+    print('날씨=', data['weather'][0]['description'])
+    print('최저기온=', k2c(data['main']['temp_min']))
+    print('최고기온=', k2c(data['main']['temp_max']))
+    print('습도=', data['main']['humidity'])
+    print('기압=', data['main']['pressure'])
+    print('풍향=', data['wind']['deg'])
+    print('풍속=', data['wind']['speed'])
+
+# 공공데이터
+# 오픈 API
+# 최근 많은 나라에서 정부 기관이 보유한 공공 데이터를 일반에 공개해 누구나
+# 정부 기관의 데이터에 쉽고 편하게 접근할 수 있게 되었다.
+# 대한민국 정부에서도 공공 데이터 포털(https://www.data.go.kr)을 통해 정부의
+# 각 부처 및 산하기관에서 발행한 다양한 공공 데이터를 공개하고 있다.
+# 이런 공공 데이터는 개별 파일로 제공되어 다운로드해서 이용할 수도 있고, 웹API
+# (오픈 API)를 이용해 가져올 수도 있다. 단 웹API를 이용하려면 회원 가입을 해야 한다.
+# 공공 데이터 포털을 이용하면 하나의 ID와 API 키로 각부처나 기관에서 제공
+# 하는 다양한 웹 API를 이용할 수 있어서 편리하다.
+# 공공 데이터 포털의 [활용 사례]를 클릭하면 오픈 API를 이용해 만든 다양한
+# 애플리케이션을 살펴볼 수 있다.
+# 공공 데이터 포털의 오픈 API를 이용하면 국내 관광 정보, 부동산 시세정보,
+# 날씨 정보, 대기 오염 정보, 대중 교통 정보 등 방대한 양의 데이터를 실시간
+# 으로 가져와서 응용 프로그램 제작에 활용할 수 있다.
+
+# 도로명 주소 검색
+
+import requests
+import xmltodict            # xml 형식의 데이터를 딕셔너리 데이터로 변환
+
+# API_KEY = 'YOUR-API-KEY' # 자신의 인증키를 복사해서 입력
+API_KEY ='9SEUPOhP0JJhhwriBurq0XmdBomJQSY3hcyEcejghpHq5OLWVb8r0mtTgrF0RVEbyu6EPOmlGRyA2gT%2FtS3LlA%3D%3D'
+API_KEY_decode = requests.utils.unquote(API_KEY)
+req_url ="http://openapi.epost.go.kr/postal/retrieveNewAdressAreaCdService/retrieveNewAdressAreaCdService/getNewAddressListAreaCd"
+
+search_Se = 'road'
+# search_Se = 'dong'
+# search_Se = '반포대로 201'
+srch_wrd = input('도로명 주소를 입력 (ex)반포대로 201')
+
+req_parameter = {'ServiceKey':API_KEY_decode,
+                 'searchSe':search_Se,
+                 'srchwrd':srch_wrd}
+r = requests.get(req_url, params = req_parameter)
+xml_data = r.text
+print(xml_data)             # xml 데이터로 출력됨
+
+# XML 데이터를 딕셔너리 데이터로 변환
+dict_data = xmltodict.parse(xml_data)
+print(dict_data)
+adress_list = dict_data['NewAddressListResponse']['newAddressListAreaCd']
+print(adress_list)
+print('[입력한 도로명 주소]', srch_wrd)
+print('[응답 데이터에서 추출한 결과]', adress_list['zipNo'])
+print('- 우편번호:', adress_list['lnmAdres'])
+print('- 지번 주소:', adress_list['rnAdres'])
+
+# for n in adress_list.keys():
+#     print("- 우편번호:", n['zipNo'])
+#     print("- 도로명 주소:", n['lnmAdres'])
+#     print("- 지번 주소:", n['rnAdres'])
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-all = [var for var in globals() if var[0] != "-"]
-for var in all:
-    del globals()[var]
-del(all)
-del(var)
-
-import sys
-sys.modules[__name__].__dict__.clear()
 
 
 # <<강의 복습 12. 끝>>
