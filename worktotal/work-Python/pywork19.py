@@ -744,11 +744,301 @@ print('- 지번 주소:', adress_list['rnAdres'])
 #     print("- 도로명 주소:", n['lnmAdres'])
 #     print("- 지번 주소:", n['rnAdres'])
 
+# 근접 측정소 정보 구하기
+import requests
+import json
+
+# API_KEY = 'YOUR-API-KEY' # 자싞의 인증키를 복사해서 입력합니다.
+API_KEY ='9SEUPOhP0JJhhwriBurq0XmdBomJQSY3hcyEcejghpHq5OLWVb8r0mtTgrF0RVEbyu6EPOmlGRyA2gT%2FtS3LlA%3D%3D'
+API_KEY_decode = requests.utils.unquote(API_KEY)
+
+req_url ="http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/getTMStdrCrdnt"
+umd_name = '서초동'        # 읍, 면, 동 지정
+num_of_rows = 10          # 한 페이지에 포함된 결과 수
+page_no = 1               # 페이지 번호
+output_type = 'json'
+
+req_parameter = {"ServiceKey":API_KEY_decode, "umdName":umd_name,
+                 "pageNo":page_no, "numOfRows":num_of_rows,
+                 "_returnType":output_type}
+dict_data = requests.get(req_url, params = req_parameter).json()
+dict_data['totalCount']             # 전체 결과의 개수
+
+print("[입력한 읍/면/동명", umd_name)
+print("[TM 기준 좌표 조회 결과]")
+for k in range(dict_data['totalCount']):
+    sido = dict_data['list'][k]['sidoName']
+    sgg = dict_data['list'][k]['sggName']
+    umd = dict_data['list'][k]['umdName']
+    tmX = dict_data['list'][k]['tmX']
+    tmY = dict_data['list'][k]['tmY']
+    print("- 위치: {0} {1} {2}".format(sido, sgg, umd))
+    print("- k = {0}, TM 좌표(X, Y): {1}, {2}\n".format(k, tmX, tmY))
+
+k = 0                                   # 원하는 위치 선택 (여기서는 첫 번째 위치)
+TM_X = dict_data['list'][k]['tmX']      # TM X 좌표
+TM_Y = dict_data['list'][k]['tmY']      # TM Y 좌표
+print("TM 좌표(X, Y): {0}, {1}".format(TM_X, TM_Y))
+req_url ="http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/getNearbyMsrstnList"
+
+x_value = TM_X                          # TM 측정방식 X좌표
+y_value = TM_Y                          # TM 측정방식 Y좌표
+num_of_rows = 10                        # 한 페이지에 포함된 결과 수
+page_no = 1                             # 페이지 번호
+output_type = "json"
+req_parameter = {"ServiceKey":API_KEY_decode,
+                "tmX":x_value, "tmY":y_value,
+                "pageNo":page_no, "numOfRows":num_of_rows,
+                "_returnType":output_type}
+
+dict_data = requests.get(req_url, params = req_parameter).json()
+print("해당 지역 근처에 있는 측정소의 개수:", dict_data['totalCount'])
+print("[측정소 정보]")
+for k in range(dict_data['totalCount']):
+    stationName = dict_data['list'][k]['stationName']
+    distance = dict_data['list'][k]['tm']
+    addr = dict_data['list'][k]['addr']
+    print("- 측정소 이름: {0}, 거리: {1}[km]".format(stationName, distance))
+    print("- 측정소 주소: {0} \n".format(addr))
+
+# 측정 정보 가져오기
+import requests
+import json
+
+# API_KEY = 'YOUR-API-KEY' # 자싞의 인증키를 복사해서 입력합니다.
+API_KEY ='9SEUPOhP0JJhhwriBurq0XmdBomJQSY3hcyEcejghpHq5OLWVb8r0mtTgrF0RVEbyu6EPOmlGRyA2gT%2FtS3LlA%3D%3D'
+API_KEY_decode = requests.utils.unquote(API_KEY)
+req_url ="http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"
+
+station_name = "서초구"          # 측정소명
+data_term = "DAILY"             # 요청 데이터 기간(1일:DAILY, 1개월:MONTH, 3개월:3MONTH)
+num_of_rows = 10                # 한 페이지에 포함된 결과 수
+page_no = 1                     # 페이지 번호
+version = 1.3                   # 오퍼레이션 버전
+output_type = "json"            # 리턴 타입: json, xml (지정하지 않으면 xml)
+
+req_parameter = {"ServiceKey": API_KEY_decode,
+                 "stationName": station_name,
+                 "dataTerm": data_term,
+                 "ver": version,
+                 "pageNo": page_no,
+                 "numOfRows": num_of_rows,
+                 "_returnType": output_type}
+dict_data = requests.get(req_url, params = req_parameter).json()
+dict_data['list'][0]
+dataTime = dict_data['list'][0]['dataTime']
+so2Grade = dict_data['list'][0]['so2Grade']
+coGrade = dict_data['list'][0]['coGrade']
+o3Grade = dict_data['list'][0]['o3Grade']
+no2Grade = dict_data['list'][0]['no2Grade']
+pm10Grade1h = dict_data['list'][0]['pm10Grade1h']
+pm25Grade1h = dict_data['list'][0]['pm25Grade1h']
+khaiGrade = dict_data['list'][0]['khaiGrade']
+
+print()
+print("[측정소({0})에서 측정된 대기 오염 상태]".format(station_name))
+print("- 측정 시간:{0}".format(dataTime))
+print("- [지수] ", end='')
+print("아황산가스:{0}, 일산화탄소:{1}, 오존:{2}, 이산화질소:{3}".
+ format(so2Grade, coGrade, o3Grade, no2Grade))
+
+print("- [등급] ", end='')
+print("미세 먼지:{0}, 초미세 먼지:{1}, 통합대기환경:{2}".
+ format(pm10Grade1h, pm25Grade1h, khaiGrade))
+gradeNum2Str = {"1":"좋음", "2":"보통", "3":"나쁨", "4":"매우나쁨" }
+print()
+
+print("[측정소({0})에서 측정된 대기 오염 상태]".format(station_name))
+print("- 측정 시간:{0}".format(dataTime))
+print("- 아황산가스:{0}, 일산화탄소:{1}, 오존:{2}, 이산화질소:{3}".
+ format(gradeNum2Str[so2Grade], gradeNum2Str[coGrade],
+ gradeNum2Str[o3Grade], gradeNum2Str[no2Grade]))
+print("- 미세 먼지:{0}, 초미세 먼지:{1}, 통합대기환경:{2}".
+ format(gradeNum2Str[pm10Grade1h],gradeNum2Str[pm25Grade1h],
+ gradeNum2Str[khaiGrade]))
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# <크롤링 할 것>
+# 기사 제목
+# 신문사
+# 표준화된 날짜 (2020.01.01)
+# 내용 전문
+# 해당 기사 하이퍼링크
+
+# <프로그램 돌아가는 방식>
+# 사용자 입력(페이지 수, 검색어, 검색 방식, 시작 날짜, 끝 날짜)  def main
+# 사용자 입력값 받아와서 def crawler 작동
+# 만약에 하이퍼링크가 "https://news.naver.com"으로 시작하면  
+# def get_news함수 작동하여 크롤링 할 것들 크롤링한다.
+# 웹크롤링 결과 저장 
+# ( 리스트 -> 메모장으로 저장 -> 메모장을 csv로 불러와서 -> 최종 엑셀로 저장)
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# -*- coding: utf-8 -*-
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+from datetime import datetime
+
+RESULT_PATH = 'C:/workspace-total/pythonworkspace/점프 투 파이썬/'
+now = datetime.now()                # 파일이름 현 시간으로 저장하기
+
+# 네이버 뉴스 홈에 등록된 기사를 크롤링 해오는 함수
+def get_news(n_url):
+    news_detail = []
+
+    breq = requests.get(n_url)
+    bsoup = BeautifulSoup(breq.content, 'html.parser')
+
+    title = bsoup.select('h3#articleTitle')[0].text
+        # 대괄호는 h3#articleTitle 인 것중 첫번째 그룹만 가져오겠다.
+    news_detail.append(title)
+
+    pdate = bsoup.select('.t11')[0].get_text()[:11]
+    news_detail.append(pdate)
+
+    _text = bsoup.select('#articleBodyContents')[0].get_text().replace('\n', " ")
+    btext = _text.replace("// flash 오류를 우회하기 위한 함수 추가 function _flash_removeCallback() {}", "")
+    news_detail.append(btext.strip())
+
+    news_detail.append(n_url)
+
+    pcompany = bsoup.select('#footer address')[0].a.get_text()
+    news_detail.append(pcompany)
+
+    return news_detail
+
+# 네이버 뉴스 홈에 등록된 기사인지 확인하고
+# 맞음면 해당 url을 get_news에 보내고 리턴값(리스트 형식)을 메모장으로 저장하는 함수
+def crawler(maxpage, query, s_date, e_date):
+    s_from = s_date.replace(".", "")
+    e_to = e_date.replace(".", "")
+    page = 1
+    maxpage_t = (int(maxpage)-1)*10+1
+        # 11 = 2페이지 21=3페이지 31=페이지 ... 81=9페이지 , 91=10페이지, 101=11페이지
+    f = open('C:/workspace-total/pythonworkspace/점프 투 파이썬/contents_text.txt', 'w', encoding='utf8')
+
+    while page < maxpage_t:
+        print(page)
+        url = "https://search.naver.com/search.naver?where=news&query=" + query + "&sort=0&ds=" + s_date + "&de=" + e_date + "&nso=so%3Ar%2Cp%3Afrom" + s_from + "to" + e_to + "%2Ca%3A&start=" + str(page)
+
+        req = requests.get(url)
+        print(url)
+        cont = req.content
+        soup = BeautifulSoup(cont, 'html.parser')
+            #print(soup)
+
+        for urls in soup.select("._sp_each_url"):
+            try:
+                #print(urls["href"])
+                if urls["href"].startswith("https://news.naver.com"):
+                    #print(urls["href"])
+                    news_detail = get_news(urls["href"])
+                        # pdate, pcompany, title, btext
+                    f.write("{}\t{}\t{}\t{}\t{}\n".format(news_detail[1], news_detail[4], news_detail[0], news_detail[2], news_detail[3])) # news style
+            except Exception as e:
+                print(e)
+                continue
+        page += 10
+
+    f.close()
+
+# 엑셀 파일을 만들어 주는 함수
+def excel_make():
+    data = pd.read_csv(RESULT_PATH+'contents_text.txt', sep='\t', header=None, error_bad_lines=False)
+    data.columns = ['years', 'company', 'title', 'contents', 'link']
+    print(data)
+
+    xlsx_outputFileName = '%s-%s-%s  %s시 %s분 %s초 result.xlsx' % (now.year, now.month, now.day, now.hour, now.minute, now.second)
+    # xlsx_name = 'result' + '.xlsx'
+    data.to_excel(RESULT_PATH+xlsx_outputFileName, encoding='utf8')
+
+# 메인 함수
+def main():
+    maxpage = input("최대 출력할 페이지수 입력: ")
+    query = input("검색어 입력: ")
+    s_date = input("시작 날짜 입력(2020.01.01): ")
+    e_date = input("끝 날짜 입력(2020.12.31): ")
+    crawler(maxpage, query, s_date, e_date)     # 검색된 네이버뉴스와 기사내용을 크롤링 합니다.
+
+    excel_make()    # 엑셀로 만들기
+main()
+
+# 크롤링한 txt파일을 워드클라우드로 표현하기
+import nltk
+from konlpy.corpus import kobill
+
+# doc_ko = kobill.open('1809890.txt').read()
+# doc_ko = open('data1/hong.txt', 'r', encoding='utf8').read()
+doc_ko = open('contents_text.txt', 'r', encoding='utf-8').read()
+print(doc_ko)
+
+# Okt 분석기로 명사 추출
+from konlpy.tag import Okt
+
+t = Okt()
+tokens_ko = t.nouns(doc_ko)
+print(tokens_ko)
+
+ko = nltk.Text(tokens_ko)
+print(len(ko.tokens))           # 수집된 단어의 총갯수: 37180
+print(len(set(ko.tokens)))      # 중복을 제외한 단어 갯수: 3911
+
+# stopwords로 등록할 단어를 그래프로 확인
+import matplotlib.pyplot as plt
+import matplotlib
+
+# '맑은고딕'으로 한글 글꼴 설정
+matplotlib.rcParams['font.family'] = "Malgun Gothic"
+
+# 단어들의 빈도수를 그래프로 출력
+plt.figure(figsize=(12, 6))
+ko.plot(50)                     # 빈도수가 높은 단어 50개를 그래프에 출력
+plt.show()
+
+# stopwords에 등록
+stop_words = ['.', '(', ')', ',', "'", '%', '-', 'X', ').', '×','의',
+              '자','에','안','번', '호','을','이','다','만','로','가','를',
+              '액','세','제','위','월','수','중','것','표','명','및','생','략',
+              '정','법','함','항','저','것','분','그','답','삶','그','또','앞','안',
+              '등','재','확','고','률','은','날','더','말','개','며','전']
+
+ko = [each_word for each_word in ko if each_word not in stop_words]
+
+# stopwords에서 제외 되었는지 그래프로 확인
+ko = nltk.Text(ko)
+plt.figure(figsize=(12, 6))
+ko.plot(50)                     # 빈도수가 높은 단어 50개를 그래프에 출력
+plt.show()
+
+# wordcloud 그리기
+data = ko.vocab().most_common(150)      # wordcloud로 출력할 단어의 갯수 150개
+
+from wordcloud import WordCloud
+
+wc = WordCloud(font_path='c:/Windows/Fonts/malgun.ttf',
+               relative_scaling=0.1,
+               background_color='white').generate_from_frequencies(dict(data))
+print(wc.words_)            # 빈도수 출력
+wc.to_file('words.png')     # words.png 파일로 저장
+
+plt.figure(figsize=(12, 8))
+plt.imshow(wc)
+plt.axis('off')
+plt.show()
 
 
 
 
 
+all = [var for var in globals() if var[0] != "-"]
+for var in all:
+    del globals()[var]
+del(all)
+del(var)
+
+import sys
+sys.modules[__name__].__dict__.clear()
 
 
 # <<강의 복습 12. 끝>>
