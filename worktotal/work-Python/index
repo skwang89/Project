@@ -78,11 +78,13 @@ pywork19.py
     강의 복습 12 - 웹 크롤링과 스크레이핑, 웹 API로 데이터 추출하기
 
 pywork20.py
-    강의 복습 13 - Scikit-Learn (회귀분석, 분류, 군집)
+    강의 복습 13 - Scikit-Learn: 회귀분석
 
 pywork21.py
-    강의 복습 14 -
+    강의 복습 14 - Scikit-Learn: 분류
 
+pywork22.py
+    강의 복습 15 - Scikit-Learn: 군집
 
 
 
