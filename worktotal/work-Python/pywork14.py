@@ -237,7 +237,7 @@ print(p.sub('color', 'blue socks and red shoes'))
 # blue, white, red 라는 문자
 # 를 color로 치환(1번만 치환함)
 print(p.sub('color', 'blue socks and red shoes', count=1))
-color socks and red shoes
+# color socks and red shoes
 
 
 # <<강의 복습 7. 끝>>
