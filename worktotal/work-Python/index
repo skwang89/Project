@@ -14,8 +14,7 @@ pywork3.py:
         함수, 사용자 입력과 출력, 파일 읽고 쓰기
 
 pywork4.py:
-    교재 5장 - 파이썬 날개달
-    기
+    교재 5장 - 파이썬 날개달기
         클래스, 모듈, 패키지, 예외 처리, 내장 함수, 라이브러리
 
 pywork5.py
@@ -41,11 +40,7 @@ pywork9.py
 
 pywork10.py
     강의 복습 3 - 자료형
-        문자열
-        리스트
-        튜플
-        셋
-        딕셔너리
+        문자열, 리스트, 튜플, 셋, 딕셔너리
 
 pywork11.py
     강의 복습 4 - 함수, 모듈, 패키지
@@ -83,14 +78,14 @@ pywork20.py
 
 pywork21.py
     강의 복습 14 - Machine_Learning
-                  Scikit-Learn: 분류
+                  Scikit-Learn: 분류l
 
 pywork22.py
     강의 복습 15 - Machine_Learning
                   Scikit-Learn: 군집
 
 pywork23.py
-    강의 복습 16 -
+    강의 복습 16 - Tensorflow
 
 
 
