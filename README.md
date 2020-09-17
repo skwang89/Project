@@ -1,4 +1,6 @@
-# Project
+데이터 분석 · 머신러닝 · 딥러닝 학습기록 저장소
+
+# Project -
     /worktotal
         /work-R
             - R 기본문법 자료구조, 라이브러리
