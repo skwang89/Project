@@ -1,91 +1,86 @@
-PyCharm을 이용한 Python배우기
+<파일 목차>
 
-<파일설명>
+[점프 투 파이썬]
 pywork1.py:
-    교재 2장 - 파이썬 프로그래밍의 기초
+    2장 - 파이썬 프로그래밍의 기초
         숫자형, 문자열, 리스트, 튜플, 딕셔너리, 집합, 불, 변수
 
 pywork2.py:
-    교재 3장 - 제어문
+    3장 - 제어문
         if, while, for
 
 pywork3.py:
-    교재 4장 - 프로그램 입·출력
+    4장 - 프로그램 입·출력
         함수, 사용자 입력과 출력, 파일 읽고 쓰기
 
 pywork4.py:
-    교재 5장 - 파이썬 날개달기
+    5장 - 파이썬 날개달기
         클래스, 모듈, 패키지, 예외 처리, 내장 함수, 라이브러리
 
 pywork5.py
-    교재 6장 - 파이썬 프로그래밍
+    6장 - 파이썬 프로그래밍
         3·5배수의 합, 게시판 페이징, 메모장 만들기, 탭을 4개 공백으로,
         하위 디렉토리 검색, 파이보
 
 pywork6.py
-    교재 7장 - 정규표현식
+    7장 - 정규표현식
         정규 표현식 살펴보기·시작하기
 
 pywork7.py
-    교재 8장 - 종합문제
+    8장 - 종합문제
 
+[학원수업 + 머신러닝, 딥러닝 실전 개발 입문]
 pywork8.py
-    강의 복습 1 - 변수, 연산자, 내장함수
+    변수, 연산자, 내장함수
 
 pywork9.py
-    강의 복습 2 - 제어문
+    제어문
         조건문: if, if - else, if - elif - else
         반복분: while, for
         보조 제어문: break, continue
 
 pywork10.py
-    강의 복습 3 - 자료형
+    자료형
         문자열, 리스트, 튜플, 셋, 딕셔너리
 
 pywork11.py
-    강의 복습 4 - 함수, 모듈, 패키지
+    함수, 모듈, 패키지
 
 pywork12.py
-    강의 복습 5 - 클래스, 예외 처리 , 파일 처리
+    클래스, 예외 처리 , 파일 처리
 
 pywork13.py
-    강의 복습 6 - 데이터베이스 연동: MySQL연동
+    데이터베이스 연동: MySQL연동
 
 pywork14.py
-    강의 복습 7 - 정규 표현식(Regular Expression)
+    정규 표현식(Regular Expression)
 
 pywork15.py
-    강의 복습 8 - numpy, pandas
+    numpy, pandas
 
 pywork16.py
-    강의 복습 9 - wordcloud, matplot
+    wordcloud, matplot
 
 pywork17.py
-    강의 복습 10 - 데이터 시각화
+    데이터 시각화
         matplotlib 그래프
         padas 그래프
         seaborn 그래프
 
 pywork18.py
-    강의 복습 11 - 지도 활용하기, 데이터 분석
+    지도 활용하기, 데이터 분석
 
 pywork19.py
-    강의 복습 12 - 웹 크롤링과 스크레이핑, 웹 API로 데이터 추출하기
+    웹 크롤링과 스크레이핑, 웹 API로 데이터 추출하기
 
 pywork20.py
-    강의 복습 13 - Machine_Learning
-                  Scikit-Learn: 회귀분석
+    Machine_Learning: Scikit-Learn - 회귀분석
 
 pywork21.py
-    강의 복습 14 - Machine_Learning
-                  Scikit-Learn: 분류
+    Machine_Learning: Scikit-Learn - 분류
 
 pywork22.py
-    강의 복습 15 - Machine_Learning
-                  Scikit-Learn: 군집
-
-pywork23.py
-    강의 복습 16 - Tensorflow
+    Machine_Learning: Scikit-Learn - 군집
 
 
 

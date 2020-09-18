@@ -1,7 +1,3 @@
-# pywork19.py start
-# <<강의 복습 12. 시작>>
-
-
 # 크롤링(Crawling)
 # 크롤링(Crawling)이란 프로그램이 웹 사이트를 정기적으로 돌며 정보를 추출 하는 기술.
 # 크롤링하는 프로그램을 “크롤러(Crawler)” 또는 “스파이더(Spider)” 라고 한다.
@@ -1027,6 +1023,3 @@ plt.imshow(wc)
 plt.axis('off')
 plt.show()
 
-
-# <<강의 복습 12. 끝>>
-# pywork19.py end

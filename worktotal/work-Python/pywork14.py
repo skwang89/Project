@@ -1,7 +1,3 @@
-# pywork14.py start
-# <<강의 복습 7. 시작>>
-
-
 # 정규 표현식
 # ● 특정한 규칙을 가진 문자열의 집합을 표현하는데 사용하는 형식 언어
 # ● Programming Language나 Text Editor 등 에서 문자열의 검색과 치환을 위한 용도로 사용
@@ -239,6 +235,3 @@ print(p.sub('color', 'blue socks and red shoes'))
 print(p.sub('color', 'blue socks and red shoes', count=1))
 # color socks and red shoes
 
-
-# <<강의 복습 7. 끝>>
-# pywork14.py end

@@ -1,7 +1,3 @@
-# pywork8.py start
-# <<강의 복습 1. 시작>>
-
-
 # 변수: 메모리사에 데이터를 저장하기 위한 기억공간의 이름
 # 변수 만드는 형식:    변수명 =  값(데이터)
 
@@ -268,5 +264,3 @@ print('{1} is a {0}'.format(name, job))         # 프로그래머 is a 홍길동
 print('{j} is a {n}'.format(n=name, j=job))     # 프로그래머 is a 홍길동
 
 
-# <<강의 복습 1. 끝>>
-# # pywork8.py end

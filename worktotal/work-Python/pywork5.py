@@ -1,6 +1,4 @@
-# pywork5.py start
 # <<교재 6장 시작>>
-
 
 # <6-1. 구구단 2단 만들기>
 # 함수 이름 GuGu
@@ -142,6 +140,4 @@ for (path, dir, files) in os.walk("c:/"):
 # 코딩도장 : http://codingdojang.com
 # 코딩 문제 사이트
 
-
 # <<교재 6장 끝>>
-# pywork5.py end

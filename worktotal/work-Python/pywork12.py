@@ -1,7 +1,3 @@
-# pywork12.py start
-# <<강의 복습 5. 시작>>
-
-
 # 클래스.
 # class: 관련있는 저장공간과 기능을 하나로 묶은 것 - Encapsulation
 # class Object: 클래스와 동일한 의미로 사용하는데 어떤 클래스를 구체적으로 지정하기 위해 사용
@@ -905,5 +901,3 @@ with open('result.txt', 'w') as f:
     f.write(str(avg))
 
 
-# <<강의 복습 5. 끝>>
-# pywork12.py end

@@ -1,7 +1,3 @@
-# pywork15.py start
-# <<강의 복습 8. 시작>>
-
-
 # numpy
 # 1. numpy는 Numerical Python의 줄임말로 고성능의 과학계산 컴퓨팅과 데이터
 # 분석에 필요핚 패키지이다.
@@ -1232,5 +1228,3 @@ print(df_wh)
 df_wh.to_csv('bmi.csv', encoding='utf8')
 
 
-# <<강의 복습 8. 끝>>
-# pywork15.py end

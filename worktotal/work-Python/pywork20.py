@@ -1,7 +1,3 @@
-# pywork20.py start
-# <<강의 복습 13. 시작>>
-
-
 # Scikit-Learn
 # 사이킷런에 내장된 예제 데이터
 # 사이킷런에는 별도의 외부 웹사이트에서 데이터 세트를 다욲로드 받을 필요
@@ -635,6 +631,3 @@ ax1 = sns.distplot(y_test, hist=False, label='y_test')          # 실제값
 ax2 = sns.distplot(y_hat, hist=False, label='y_hat', ax=ax1 )   # 예측값
 plt.show()
 
-
-# <<강의 복습 13. 끝>>
-# pywork20.py end

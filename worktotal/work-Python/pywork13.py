@@ -1,7 +1,3 @@
-# pywork13.py start
-# <<강의 복습 6. 시작>>
-
-
 # 데이터베이스 연동: MySQL연동
 import pymysql
 
@@ -175,6 +171,3 @@ finally:
 
 # sqlite, oracle, MongoDB 연동 생략
 
-
-# <<강의 복습 6. 끝>>
-# pywork13.py end

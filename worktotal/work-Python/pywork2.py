@@ -1,6 +1,4 @@
-# pywork2.py start
 # <<교재 3장 시작>>
-
 
 # <3-1. if문>
 # if문의 기본 구조
@@ -379,6 +377,5 @@ result = []
 result = [n*2 for n in numbers if n%2==1]
 print(result)
 
-
 # <<교재 3장 끝>>
-# pywork2.py end
+

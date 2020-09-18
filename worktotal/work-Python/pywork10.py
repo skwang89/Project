@@ -1,7 +1,3 @@
-# pywork10.py start
-# <<강의 복습 3. 시작>>
-
-
 # 자료형.
 # 문자열 자료형: '', "", ''', """
 s1 = 'Hello World'
@@ -1091,5 +1087,3 @@ result5 = sorted(names.items(), key=f2, reverse=True)
 print('result5:', result5)         # [('Michale', 27115), ('Tom', 20245), ('Mary', 10999), ('Aimy', 9778)
 
 
-# <<강의 복습 3. 끝>>
-# pywork10.py end

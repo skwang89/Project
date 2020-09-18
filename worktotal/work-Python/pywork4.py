@@ -1,6 +1,4 @@
-# pywork4.py start
 # <<교재 5장 시작>>
-
 
 # <5-1. 클래스>
 # 사칙연산 클래스 만들기
@@ -1216,6 +1214,5 @@ while len(result) < 6:
         result.append(num)
 print(result)
 
-
 # <<교재 5장 끝>>
-# pywork4.py end
+

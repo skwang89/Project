@@ -1,7 +1,3 @@
-# pywork17.py start
-# <<강의 복습 10. 시작>>
-
-
 # 데이터 시각화 방법
 #  matplotlib 그래프
 #  pandas 그래프
@@ -944,6 +940,3 @@ g = sns.pairplot(titanic_pair)
 plt.savefig('pairplot.png')
 plt.show()
 
-
-# <<강의 복습 10. 끝>>
-# pywork17.py end

@@ -1,7 +1,3 @@
-# pywork22.py start
-# <<강의 복습 15. 시작>>
-
-
 # 군집(clustering)
 # 군집은 데이터를 비슷한 것끼리 그룹으로 묶어주는 알고리즘이다.
 
@@ -567,6 +563,3 @@ for name, lat, lng, clus in zip(df.학교명, df.위도, df.경도, df.Cluster3)
  # 지도를 html 파일로 저장하기
 cluster3_map.save('seoul_mschool_cluster3.html')
 
-
-# <<강의 복습 15. 끝>>
-# pywork22.py end

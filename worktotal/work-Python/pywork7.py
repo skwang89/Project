@@ -1,4 +1,3 @@
-# pywork7.py start
 # <<교재 8장 시작>>
 
 # Q1 문자열 바꾸기
@@ -403,6 +402,4 @@ ig = re.compile(".*[@].*[.](?=com$|net$).*$")
 print(ig.match("ddd@gmail.com"))
 print(ig.match('ddd@df.co.kr'))
 
-
 # <<교재 8장 끝>>
-# pywork7.py end

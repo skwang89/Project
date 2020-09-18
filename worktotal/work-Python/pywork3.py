@@ -1,6 +1,4 @@
-# pywork3.py start
 # <<교재 4장 시작>>
-
 
 # <4-1. 함수>
 # 파이썬 함수의 구조
@@ -420,6 +418,5 @@ f = open('test.txt', 'w')
 f.write(get)
 f.close()
 
-
 # <<교재 4장 끝>>
-# pywork3.py end
+

@@ -1,7 +1,3 @@
-# pywork16.py start
-# <<강의 복습 9. 시작>>
-
-
 # wordcloud
 # 앨리스 워드클라우드
 import numpy as np
@@ -150,6 +146,3 @@ plt.imshow(wc)
 plt.axis('off')
 plt.show()
 
-
-# <<강의 복습 9. 끝>>
-# pywork16.py end
