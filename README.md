@@ -1,4 +1,4 @@
-데이터 분석 · 웹 크롤링 · 머신러닝 · 딥러닝 학습기록 저장소
+# 데이터 분석 · 웹 크롤링 · 머신러닝 · 딥러닝 학습기록 저장소
 
 학습 도서
 - Do it! 쉽게 배우는 R 데이터 분석 √
@@ -12,11 +12,11 @@
 
 개발환경
 R - RStudio 3.6.2
-python - pycharm 3.7
-tensorflow, keras - Google Colab
+Python - pycharm 3.7
+Tensorflow, keras - Google Colab
 
 
-# Project -
+Project -
     /worktotal
         /work-R
             - 기본문법 자료구조, 라이브러리
