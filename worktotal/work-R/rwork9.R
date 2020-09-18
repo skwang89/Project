@@ -1,7 +1,3 @@
-# rwork9.R start
-# <<교재 10장 시작>>
-
-
 # 텍스트 마이닝
 # 형태소 분석 : 명사
 # 비정형 데이터 시각화 : wordcloud
@@ -196,6 +192,3 @@ wordcloud(words = df_word$word,
           colors = pal )
 
 
-
-# <<교재 10장 끝>>
-# rwork9.R end

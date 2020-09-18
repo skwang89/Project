@@ -1,6 +1,3 @@
-# rwork3.R start
-# <<교재 4장 시작>>
-
 # 데이터 프레임 만들기
 # 데이터 프레임: 행과 열을 가진 2차원 표
 
@@ -177,5 +174,3 @@ df_midterm
 # save(df_midterm, file = "df_midterm.rda") # Rda 파일로 저장하기
 
 
-# <<교재 4장 끝>>
-# rwork3.R end

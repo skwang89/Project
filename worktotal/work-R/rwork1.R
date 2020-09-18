@@ -1,5 +1,3 @@
-# rwork1.R start
-
 # 실행 단축키: Ctrl + Enter
 # 주석 단축키: Ctrl + Shift + Enter
 
@@ -385,5 +383,3 @@ abs(-30)
 
 # 내장 함수
 factorial(100)
-
-# rwork1.R end

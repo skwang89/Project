@@ -1,7 +1,3 @@
-# rwork6.R start
-# <<교재 7장 시작>>
-
-
 # 결측치 제거하기
 # 결측치(Missing Value)
 # 1. 비어있는 데이터를 의미
@@ -347,6 +343,3 @@ mpg %>%
 # # 극단치 결측 처리
 # mpg$hwy <- ifelse(mpg$hwy < 12 | mpg$hwy > 37, NA, mpg$hwy)
 
-
-# <<교재 7장 끝>>
-# rwork6.R end

@@ -1,7 +1,3 @@
-# rwork10.R start
-# <<교재 11장 시작>>
-
-
 # 단계 구분도(Choropleth Map)
 # ● 지역별 통계치를 색깔의 차이로 표현한 지도
 # ● 인구나 소득 같은 특성이 지역별로 얼마나 다른지 쉽게 이해할 수 있음
@@ -149,10 +145,4 @@ ggChoropleth(data = tbc,          # 지도에 표현할 데이터
                  tooltip = name), # 지도 위에 표시할 지역명
              map = kormap1,       # 지도 데이터 
              interactive = T)     # 인터렉티브 
-
-
-# <<교재 11장 끝>>
-# rwork10.R end
-
-
 

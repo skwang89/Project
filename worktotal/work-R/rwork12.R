@@ -1,7 +1,3 @@
-# rwork12.R start
-# <<교재 13장 시작>>
-
-
 # R을 활용한 평균, 중앙값, 분산, 표준편차 구하기
 score <- c(85, 90, 93, 86, 82)
 score
@@ -380,8 +376,4 @@ corrplot(car_cor,
          tl.col = 'black',
          tl.srt = 45,
          diag = F)
-
-
-# <<교재 13장 끝>>
-# rwork12.R end
 

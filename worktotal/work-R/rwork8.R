@@ -1,7 +1,3 @@
-# rwork8.R start
-# <<교재 9장 시작>>
-
-
 # 데이터 분석 프로젝트
 # 한국복지패널데이터
 # • 한국보건사회연구원 발간
@@ -662,6 +658,3 @@ ggplot(data=region_ageg, aes(x = region, y = pct, fill = ageg)) +
 
 # scale_x_discrete(limits = order) 마지막줄 에러남 확인 바람
 
-
-# <<교재 9장 끝>>
-# rwork8.R end

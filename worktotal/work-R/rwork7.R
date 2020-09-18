@@ -1,7 +1,3 @@
-# rwork7.R start
-# <<교재 8장 시작>>
-
-
 # 데이터 시각화
 
 # 정형 데이터를 시각화: 그래프
@@ -206,6 +202,3 @@ ggplot(data=df, aes(x=class, y=cty)) + geom_boxplot()
 # # 5.상자 그림
 # ggplot(data = mpg, aes(x = drv, y = hwy)) + geom_boxplot()
 
-
-# <<교재 8장 끝>>
-# rwork7.R end

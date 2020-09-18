@@ -1,7 +1,3 @@
-# rwork13.R start
-# <<구글차트 활용하기 시작>>
-
-
 # 구글차트
 install.packages('googleVis')
 library(googleVis)
@@ -161,7 +157,3 @@ map <- get_googlemap(center = cen,
 ggmap(map) + geom_text(data = df, aes(x=lon, y=lat),
                        size=3, label=df$names)
 
-
-
-# <<구글차트 활용하기 끝>>
-# rwork13.R end

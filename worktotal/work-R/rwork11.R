@@ -1,7 +1,3 @@
-# rwork11.R start
-# <<교재 12장 시작>>
-
-
 # plotly 패키지로 인터랙티브 그래프 만들기
 
 # 패키지 준비하기
@@ -149,6 +145,3 @@ head(eco2)
 # 저축률과 실업자수 관계를 인터렉티브 시계열 그래프 그리기
 dygraph(eco2) %>% dyRangeSelector()
 
-
-# <<교재 12장 끝>>
-# rwork11.R end
