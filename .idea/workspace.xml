@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="add">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/index" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork1.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork10.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork10.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork11.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork11.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork12.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork12.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork13.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork13.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork14.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork14.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork15.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork15.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork16.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork16.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork17.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork17.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork18.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork18.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork19.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork19.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork2.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork20.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork20.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork21.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork21.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork22.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork22.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork23.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork3.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork4.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork5.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork6.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork7.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork7.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork8.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork8.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/pywork9.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/pywork9.py" afterDir="false" />
-    </list>
+    <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -452,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600387673290</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="modification">
+      <created>1600401847600</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1600401847600</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -489,7 +470,8 @@
     <MESSAGE value="add pywork20" />
     <MESSAGE value="add pywork21" />
     <MESSAGE value="add" />
-    <option name="LAST_COMMIT_MESSAGE" value="add" />
+    <MESSAGE value="modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
