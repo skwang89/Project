@@ -15,7 +15,7 @@
 개발환경
 R - RStudio 3.6.2
 Python - pycharm 3.7
-Tensorflow, keras - Google Colab
+Tensorflow2, keras - Google Colab
 
 
 Project -
