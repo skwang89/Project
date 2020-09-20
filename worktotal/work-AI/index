@@ -2,8 +2,18 @@
 
 [학원 수업]
     tensor1.ipynb
-        상수, 변수
-
+        텐서플로 기초 - 상수, 변수
     keras1.ipynb
         예제, 폐암 수술환자의 생존율 예측
+    keras2.ipynb
+        선형회귀 테스트 - 보스턴 집값 예측
+    keras3.ipynb
+        분류 테스트 - 피마 인디언 당뇨병 분석
+    keras4.ipynb
+        분류 테스트 - 레드와인과 화이트와인의 특징을 학습하고 분류
+    keras5.ipynb
+        다중분류 테스트 - 붓꽃 품종 분류
+    keras6.ipynb
+        MNIST 이미지 예측, 응용
+
 

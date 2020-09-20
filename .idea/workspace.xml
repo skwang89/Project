@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="modification">
+    <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worktotal/work-AI/index" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-AI/index" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,13 +113,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597021677747</updated>
-    </task>
-    <task id="LOCAL-00001" summary="ㅇㅇ">
-      <created>1597104417695</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1597104417695</updated>
     </task>
     <task id="LOCAL-00002" summary="add pywork1">
       <created>1597110127362</created>
@@ -449,7 +443,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600414464516</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="modification">
+      <created>1600415424779</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1600415424779</updated>
+    </task>
+    <task id="LOCAL-00050" summary="modification">
+      <created>1600593744322</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1600593744324</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
