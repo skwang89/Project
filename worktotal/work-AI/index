@@ -1,6 +1,6 @@
 <파일 목차>
 
-[머신러닝]
+[강의 - 머신러닝]
     keras1.ipynb
         예제, 폐암 수술환자의 생존율 예측
     keras2.ipynb
@@ -14,7 +14,7 @@
     keras6.ipynb
         MNIST 이미지 예측, 응용
 
-[딥러닝]
+[강의 - 딥러닝]
     keras7.ipynb
         CNN(합성곱 신경망)을 이용한 MNIST예제
 
