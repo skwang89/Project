@@ -15,5 +15,6 @@
         다중분류 테스트 - 붓꽃 품종 분류
     keras6.ipynb
         MNIST 이미지 예측, 응용
-
+    keras7.ipynb
+        CNN(합성곱 신경망)을 이용한 MNIST예제
 
