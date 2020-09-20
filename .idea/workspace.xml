@@ -114,13 +114,6 @@
       <option name="presentableId" value="Default" />
       <updated>1597021677747</updated>
     </task>
-    <task id="LOCAL-00008" summary="add pywork2">
-      <created>1597133435679</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1597133435679</updated>
-    </task>
     <task id="LOCAL-00009" summary="add pywork3">
       <created>1597144160562</created>
       <option name="number" value="00009" />
@@ -457,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600601922859</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="add">
+      <created>1600610125644</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1600610125645</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -493,9 +493,9 @@
     <MESSAGE value="add pywork19" />
     <MESSAGE value="add pywork20" />
     <MESSAGE value="add pywork21" />
-    <MESSAGE value="add" />
     <MESSAGE value="modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification" />
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
