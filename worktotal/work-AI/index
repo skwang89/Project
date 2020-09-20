@@ -16,5 +16,10 @@
 
 [강의 - 딥러닝]
     keras7.ipynb
-        CNN(합성곱 신경망)을 이용한 MNIST예제
-
+        CNN(합성곱 신경망)을 이용한 MNIST 분류
+    keras8.ipynb
+        MLP(다층 퍼셉트론 알고리즘)을 이용한 CIFAR-10 이미지 분류와
+        CNN을 이용한 CIFAR-10 데이터셋 이미지 분류 비교
+        CNN 학습 모델 성능 확인
+    keras9.ipynb
+        RNN
