@@ -1,8 +1,6 @@
 <파일 목차>
 
-[학원 수업]
-    tensor1.ipynb
-        텐서플로 기초 - 상수, 변수
+[머신러닝]
     keras1.ipynb
         예제, 폐암 수술환자의 생존율 예측
     keras2.ipynb
@@ -15,6 +13,8 @@
         다중분류 테스트 - 붓꽃 품종 분류
     keras6.ipynb
         MNIST 이미지 예측, 응용
+
+[딥러닝]
     keras7.ipynb
         CNN(합성곱 신경망)을 이용한 MNIST예제
 

@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3e1217d6-7136-43f0-a25c-48536518d694" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worktotal/work-AI/index" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-AI/index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worktotal/work-AI/tensor1.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/worktotal/work-Python/index" beforeDir="false" afterPath="$PROJECT_DIR$/worktotal/work-Python/index" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,13 +115,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597021677747</updated>
-    </task>
-    <task id="LOCAL-00003" summary="add pywork1">
-      <created>1597120742613</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1597120742615</updated>
     </task>
     <task id="LOCAL-00004" summary="add pywork1">
       <created>1597120798638</created>
@@ -456,7 +452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600594385234</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="modification">
+      <created>1600597170060</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1600597170060</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
