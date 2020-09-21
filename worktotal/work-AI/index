@@ -30,4 +30,4 @@
     keras11.ipynb
         쳇봇 - 영어 단어를 한국어 단어로 변환하는 프로그램
     keras12.ipynb
-        Transfer_Learning(전이학습)
+        Transfer_Learning(전이학습) - VGGNet16 모델을 이용
