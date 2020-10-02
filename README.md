@@ -9,7 +9,7 @@
 ## 개발환경
 R - RStudio 3.6.2  
 Python - pycharm 3.7  
-Tensorflow2, keras - Google Colab  
+Tensorflow2, keras - Google Colab(Jupyter Notebook)
 
 ## index
 - worktotal
